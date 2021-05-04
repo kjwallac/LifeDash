@@ -9,17 +9,18 @@ const dbserver = process.env.MONGOD_URI || "mongodb://localhost/lifedash_db";
 // Middleware
 app.use(compression());
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 // Mongoose Connect
 mongoose.connect(dbserver, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 
 // Routes here
-app.use(require("./controllers"));
+app.use("/api", require("./controllers"));
 
 // Server start
 app.listen(PORT, (err) => {

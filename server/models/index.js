@@ -1,1 +1,3 @@
-console.log("Models");
+module.exports = {
+  User: require("./User"),
+};
