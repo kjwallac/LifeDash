@@ -1,33 +1,31 @@
 const { Schema, model } = require("mongoose");
 
-// UserSchema still needs username, password and email Validators
-// Will add later
-
 const UserSchema = new Schema(
   {
-    username: {
+    googleId: {
       type: String,
-      trim: true,
-      unique: true,
-      required: "Please enter your name",
+      required: true,
+    },
+    displayName: {
+      type: String,
+      required: true,
       index: true,
     },
-    // Until OAuth is in then delete this and use hash and salt
-    password: {
+    firstName: {
       type: String,
-      trim: true,
-      required: "Please enter a password",
+      required: true,
     },
-    email: {
+    lastName: {
       type: String,
-      trim: true,
-      unique: true,
-      required: "Please enter your email",
-      index: true,
+      required: true,
     },
-    // To wait for OAuth to be implemented
-    // hash: String,
-    // salt: String,
+    image: {
+      type: String,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
   { timestamps: true }
 );
