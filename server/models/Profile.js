@@ -39,6 +39,11 @@ const ProfileSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    status: {
+      type: String,
+      default: "public",
+      enum: ["public", "private"],
+    },
     createdAt: {
       type: Date,
       default: Date.now,
