@@ -1,9 +1,13 @@
 const { Schema, model } = require("mongoose");
 
-// Profile / maybe change name to something
 const ProfileSchema = new Schema(
   {
-    name: {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
       type: String,
       required: true,
       trim: true,
