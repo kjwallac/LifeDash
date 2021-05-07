@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
+const dbserver = process.env.MONGOD_URI || "mongodb://localhost/lifedash_db";
+
 const connectDB = async () => {
   try {
-    const connect = await mongoose.connect(process.env.MONGO_URI, {
+    const connect = await mongoose.connect(dbserver, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
