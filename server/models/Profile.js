@@ -20,6 +20,9 @@ const ProfileSchema = new Schema(
       type: Date,
       required: true,
     },
+    profileImage: {
+      type: String,
+    },
     quote: {
       type: String,
     },
