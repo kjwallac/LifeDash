@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // Creates a new user
+// Won't be creating new users
 router.post("/create", async ({ body }, res) => {
   try {
     const user = await User.create(body);

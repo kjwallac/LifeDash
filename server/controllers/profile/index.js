@@ -12,34 +12,20 @@ router.get("/", async (req, res) => {
   }
 });
 
-// testing for now, nothing going to saving into atlas
+// work in progress
+router.get("/:id", async (req, res) => {
+  try {
+    console.log("Getting id params");
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json("Server Error");
+  }
+});
+
 router.post("/create", async ({ body }, res) => {
   try {
-    const {
-      firstName,
-      lastName,
-      bornDate,
-      deathDate,
-      quote,
-      socialLinks,
-      images,
-      bio,
-      status,
-    } = body;
-    console.log("POST: Create Profile");
-    console.log(body);
-    console.log(`${"=".repeat(30)}`);
-    console.log({
-      firstName,
-      lastName,
-      bornDate,
-      deathDate,
-      quote,
-      socialLinks,
-      images,
-      bio,
-      status,
-    });
+    const newProfile = await Profile.create(body);
+    res.status(200).json(newProfile);
   } catch (err) {
     console.log(err.message);
     res.status(500).json(err);
