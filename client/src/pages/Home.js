@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Bar from '../components/Bar';
-import ProfileHeader from '../components/ProfileHeader';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +38,7 @@ export default function RecipeReviewCard() {
   return (
     <>  
     <Bar />
-    <ProfileHeader />
+    
     </>
   );
 }
