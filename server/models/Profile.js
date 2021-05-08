@@ -13,12 +13,20 @@ const ProfileSchema = new Schema(
       trim: true,
     },
     bornDate: {
-      type: Date,
+      type: Number,
       required: true,
+      min: 0500,
+      max: 9999,
     },
     deathDate: {
-      type: Date,
+      type: Number,
       required: true,
+      min: 0500,
+      max: 9999,
+      validate: [
+        checkDate,
+        "Death year must be greater than or equal to the born year",
+      ],
     },
     profileImage: {
       type: String,
@@ -55,5 +63,9 @@ const ProfileSchema = new Schema(
   },
   { timestamps: true }
 );
+
+function checkDate(value) {
+  return this.bornDate <= value;
+}
 
 module.exports = model("Profile", ProfileSchema);
