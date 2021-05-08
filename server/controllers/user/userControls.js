@@ -22,7 +22,7 @@ module.exports = {
   create: async ({ body }, res) => {
     try {
       const newUser = await User.create(body);
-      res.status(200).json(user);
+      res.status(200).json(newUser);
     } catch (err) {
       console.log(err.message);
       res.status(500).json(err);
