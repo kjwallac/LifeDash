@@ -24,6 +24,7 @@ router.post("/create", async ({ body }, res) => {
 });
 
 // WORK IN PROGRESS ///////////////////////////////////
+// Logging in with google only, will not need this/ Keeping it here just in case future use
 router.put("/update", async (req, res) => {
   try {
     // get id through params

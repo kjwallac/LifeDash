@@ -12,10 +12,34 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/create", async (req, res) => {
+// testing for now, nothing going to saving into atlas
+router.post("/create", async ({ body }, res) => {
   try {
+    const {
+      firstName,
+      lastName,
+      bornDate,
+      deathDate,
+      quote,
+      socialLinks,
+      images,
+      bio,
+      status,
+    } = body;
     console.log("POST: Create Profile");
-    res.send("Create profile");
+    console.log(body);
+    console.log(`${"=".repeat(30)}`);
+    console.log({
+      firstName,
+      lastName,
+      bornDate,
+      deathDate,
+      quote,
+      socialLinks,
+      images,
+      bio,
+      status,
+    });
   } catch (err) {
     console.log(err.message);
     res.status(500).json(err);
