@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// work in progress
+// work in progress /////////////////////
 router.get("/:id", async (req, res) => {
   try {
     console.log("Getting id params");
