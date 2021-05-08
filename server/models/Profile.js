@@ -44,6 +44,10 @@ const ProfileSchema = new Schema(
       default: "public",
       enum: ["public", "private"],
     },
+    qrCode: {
+      type: String,
+      required: true,
+    },
     createdAt: {
       type: Date,
       default: Date.now,

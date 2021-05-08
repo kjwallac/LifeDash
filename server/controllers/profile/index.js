@@ -1,35 +1,25 @@
 const router = require("express").Router();
-const { Profile } = require("../../models");
+const {
+  findAll,
+  findById,
+  update,
+  create,
+  remove,
+} = require("./profileControls");
 
-router.get("/", async (req, res) => {
-  try {
-    const profile = await Profile.find({});
-    console.log(profile);
-    res.status(200).send("Profile Routes Here");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// Gets all profiles
+router.get("/", findAll);
 
-// work in progress /////////////////////
-router.get("/:id", async (req, res) => {
-  try {
-    console.log("Getting id params");
-  } catch (err) {
-    console.log(err.message);
-    res.status(500).json("Server Error");
-  }
-});
+// Gets profile by id
+router.get("/:id", findById);
 
-router.post("/create", async ({ body }, res) => {
-  try {
-    const newProfile = await Profile.create(body);
-    res.status(200).json(newProfile);
-  } catch (err) {
-    console.log(err.message);
-    res.status(500).json(err);
-  }
-});
+// Creates profile
+router.post("/create", create);
+
+// Updates profile by id
+router.put("/update/:id", update);
+
+// removes profile by id
+router.delete("/remove/:id", remove);
 
 module.exports = router;
