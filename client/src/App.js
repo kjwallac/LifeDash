@@ -5,20 +5,21 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Data from "./pages/Data";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/home">
+        <Route exact path="/home">
           <Home />
           <Data />
         </Route>
-        <Route path="/profile">
+        <Route exact path="/profile">
           <Profile />
         </Route>
-        <Route path="/">
-          <Home />
+        <Route exact path="/login">
+          <Login />
         </Route>
       </Switch>
     </Router>
