@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
-import Bar from "../components/Bar";
 import ProfileHeader from "../components/ProfileHeader";
 import SwiperPics from "../components/Swiper/Swiper";
 

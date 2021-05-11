@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login/Login";
+import ErrorPage from "./pages/Error";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/profile" component={Profile} />
+        <Route path="/" component={ErrorPage} />
       </Switch>
     </Router>
   );
