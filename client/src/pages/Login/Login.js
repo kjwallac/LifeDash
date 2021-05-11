@@ -31,16 +31,16 @@ export const Login = () => {
             Login
           </div>
           <div className="card-body" style={cardBody}>
-            <a href="/api/google" style={button}>
+            <a href="/api/google" style={btn}>
               Log in with Google
             </a>
           </div>
           <div className="card-footer" style={cardFooter}>
-            Footer
+            copyright &copy; Life-Dash Company&#174;
           </div>
         </div>
       </div>
-      <button style={button} onClick={logout}>
+      <button style={logoutBtn} onClick={logout}>
         Logout
       </button>
     </div>
@@ -54,7 +54,8 @@ const {
   cardHeader,
   cardBody,
   cardFooter,
-  button,
+  btn,
+  logoutBtn,
 } = {
   container: {
     marginRight: "auto",
@@ -87,8 +88,18 @@ const {
     textAlign: "center",
     padding: "0.5rem",
   },
-  button: {
+  btn: {
     backgroundColor: "#de5246",
+    color: "white",
+    textDecoration: "none",
+    padding: "0.3rem",
+    fontWeight: "bold",
+  },
+  logoutBtn: {
+    margin: "0 auto",
+    textAlign: "center",
+    width: "100%",
+    backgroundColor: "dodgerblue",
     color: "white",
     textDecoration: "none",
     padding: "0.3rem",
