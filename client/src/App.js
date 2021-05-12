@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Bar from "./components/Bar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -14,7 +13,7 @@ function App() {
           <Home />
           <Data />
         </Route>
-        <Route path="/profile">
+        <Route path="/profile/:profileId" >
           <Profile />
         </Route>
         <Route path="/">
