@@ -35,10 +35,10 @@ const ProfileSchema = new Schema(
       type: String,
     },
     socialLinks: {
-      type: String,
+      type: [String],
     },
     images: {
-      type: String,
+      type: [String],
     },
     bio: {
       type: String,

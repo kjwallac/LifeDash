@@ -4,7 +4,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 export const CreateProfile = () => {
   return (
     <div className="create-profile">
-      <h1>Create a profile</h1>
+      <h1>Create a Profile</h1>
       <HelpOutlineIcon
         style={{
           fontSize: 100,

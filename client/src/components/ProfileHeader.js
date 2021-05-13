@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import ImageAvatars from './ImageAvatars';
+import ImageAvatar from './ImageAvatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function ProfileHeader() {
+export default function ProfileHeader({ profile }) {
   const classes = useStyles();
 
   return (
@@ -30,20 +30,20 @@ export default function ProfileHeader() {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <ButtonBase className={classes.image}>
-              <ImageAvatars className={classes.avatar} />
+              <ImageAvatar profile={profile} className={classes.avatar} />
             </ButtonBase>
           </Grid>
           <Grid item sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography xs={12} gutterBottom variant="h6" className={classes.profData}>
-                  Name Here
+                  {profile.firstName} {profile.lastName}
                 </Typography>
                 <Typography xs={12} variant="body1" gutterBottom className={classes.profData}>
-                  1932 - 2020
+                  {profile.bornDate} - {profile.deathDate}
                 </Typography>
                 <Typography variant="body2" className={classes.profData}>
-                “The way I see it, every life is a pile of good things and bad things. The good things don't always soften the bad things, but vice versa, the bad things don't always spoil the good things or make them unimportant.” – 11th Doctor
+                  {profile.quote}
                 </Typography>
               </Grid>
             </Grid>
