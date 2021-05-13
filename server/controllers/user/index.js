@@ -8,7 +8,7 @@ router.get("/", findAll);
 router.get("/:id", findById);
 
 // updates user // only affects our database
-router.put("/update", update);
+router.put("/update/:id", update);
 
 // removes user from database only
 router.delete("/remove", remove);

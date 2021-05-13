@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/Error";
 import CreateProfile from "./pages/Create/CreateProfile";
 import Bar from "./components/Bar";
+import Account from "./pages/Account/Account";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Bar />
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/account/:id" component={Account} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/profile/create" component={CreateProfile} />
         <Route exact path="/profile/:profileId" component={Profile} />

@@ -5,7 +5,7 @@ import logo from "../images/logo.png";
 const Data = () => {
   const profileId = "6096d4f37db3bb974d03154e";
   return (
-    <div>
+    <div style={{ margin: "0 auto", textAlign: "center" }}>
       <h1>QR Code</h1>
       <br />
       <QRCode
