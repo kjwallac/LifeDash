@@ -19,9 +19,9 @@ export const CreateProfile = () => {
           <div className="card-body">
             <div className="form-group">
               <label htmlFor="firstName">First Name</label>
-              <input type="text" maxlength="25" id="firstName" />
+              <input type="text" maxLength="25" id="firstName" />
               <label htmlFor="lastName">Last Name</label>
-              <input type="text" maxlength="30" />
+              <input type="text" maxLength="30" />
               <label htmlFor="bornDate">Date of birth</label>
               <input type="number" min="0500" max="9999" />
               <label htmlFor="deathDate">Date of passing</label>
