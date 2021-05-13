@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/Error";
+import CreateProfile from "./pages/Create/CreateProfile";
 
 function App() {
   return (
@@ -15,9 +16,11 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile/create" component={CreateProfile} />
         <Route path="/" component={ErrorPage} />
       </Switch>
     </Router>
   );
 }
+
 export default App;
