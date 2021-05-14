@@ -1,6 +1,7 @@
 import "./Login.css";
 import axios from "axios";
 import { useEffect } from "react";
+import logo from "../../images/logo.png";
 
 const logout = async () => {
   await axios.get("/api/google/logout");
@@ -19,6 +20,15 @@ export const Login = () => {
 
   return (
     <div className="container">
+      <img
+        src={logo}
+        alt="logo"
+        style={{
+          display: "flex",
+          width: "250px",
+          margin: "1rem auto",
+        }}
+      />
       <div className="cardContainer">
         <div className="card">
           <div className="cardHeader">Login</div>

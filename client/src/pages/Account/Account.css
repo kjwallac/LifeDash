@@ -50,6 +50,7 @@
   border: 1px solid gray;
   margin: 1rem;
   background-color: #fff;
-  /* border-left: 0;
-  border-right: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

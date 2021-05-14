@@ -1,6 +1,7 @@
 import "./Account.css";
 import { useEffect, useState } from "react";
 import { API } from "../../utils/API";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 export const Account = (props) => {
   // States
@@ -32,7 +33,10 @@ export const Account = (props) => {
         <h2>Account</h2>
         <div className="acc-options">View Profiles</div>
         <div className="acc-options">Create new profile</div>
-        <div className="acc-options">Logout</div>
+        <div className="acc-options">
+          <ExitToAppIcon />
+          Logout
+        </div>
       </div>
     </div>
   );

@@ -28,6 +28,12 @@
 .cardBody {
   text-align: center;
   padding: 0.5rem;
+  margin: 1rem;
+}
+
+.cardBody a {
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
 }
 
 .btn {
