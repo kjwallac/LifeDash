@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = {
-  // USERS
+  // USERS //////////////////////////////////
   getAllUsers: () => {
     return axios.get("/api/user");
   },
@@ -11,7 +11,7 @@ export const API = {
   updateUser: (id) => {
     return axios.put(`/api/user/update/${id}`);
   },
-  // PROFILES
+  // PROFILES //////////////////////////////////
   getAllProfiles: () => {
     return axios.get("/api/profile");
   },
@@ -27,7 +27,7 @@ export const API = {
   removeProfile: (id) => {
     return axios.delete(`/api/profile/remove/${id}`);
   },
-  // LOGOUTS ACCOUNT
+  // LOGOUTS ACCOUNT //////////////////////////////////
   logout: () => {
     return axios.get("/api/google/logout");
   },

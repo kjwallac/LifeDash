@@ -1,23 +1,7 @@
 import "./Login.css";
-import axios from "axios";
-import { useEffect } from "react";
 import logo from "../../images/logo.png";
 
-const logout = async () => {
-  await axios.get("/api/google/logout");
-  window.location.href = "/";
-};
-
 export const Login = () => {
-  // Gets data to display
-  useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get("/api/user");
-      console.log(res.data);
-    };
-    return getData();
-  }, []);
-
   return (
     <div className="container">
       <img
