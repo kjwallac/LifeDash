@@ -40,6 +40,25 @@
   box-shadow: 1px 1px 5px gray;
 }
 
+.acc-options-container a {
+  text-decoration: none;
+  color: #333;
+}
+
+.acc-options-container button {
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  color: white;
+  border-top: 1px solid #fff;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  margin-top: 20rem;
+}
+
 .acc-options-container h2 {
   color: #fff;
 }

@@ -2,6 +2,7 @@ import "./Account.css";
 import { useEffect, useState } from "react";
 import { API } from "../../utils/API";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { Link } from "react-router-dom";
 
 export const Account = (props) => {
   // States
@@ -9,6 +10,13 @@ export const Account = (props) => {
   const [image, setImage] = useState(null);
   const [userID, setUserID] = useState(null);
 
+  // Logout user
+  const logout = async () => {
+    await API.logout();
+    window.location.href = "/";
+  };
+
+  // Gets user info
   useEffect(() => {
     const getUser = async () => {
       const id = props.match.params.id;
@@ -31,12 +39,16 @@ export const Account = (props) => {
       </div>
       <div className="acc-options-container">
         <h2>Account</h2>
-        <div className="acc-options">View Profiles</div>
-        <div className="acc-options">Create new profile</div>
-        <div className="acc-options">
+        <Link to="/profile" className="acc-options">
+          View Profiles
+        </Link>
+        <Link to="/profile/create" className="acc-options">
+          Create New Profile
+        </Link>
+        <button onClick={logout}>
           <ExitToAppIcon />
           Logout
-        </div>
+        </button>
       </div>
     </div>
   );

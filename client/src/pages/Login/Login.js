@@ -42,9 +42,6 @@ export const Login = () => {
           </div>
         </div>
       </div>
-      <button className="logoutBtn" onClick={logout}>
-        Logout
-      </button>
     </div>
   );
 };

@@ -27,4 +27,8 @@ export const API = {
   removeProfile: (id) => {
     return axios.delete(`/api/profile/remove/${id}`);
   },
+  // LOGOUTS ACCOUNT
+  logout: () => {
+    return axios.get("/api/google/logout");
+  },
 };
