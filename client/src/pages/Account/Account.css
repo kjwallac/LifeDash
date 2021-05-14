@@ -1,0 +1,55 @@
+.account-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.name-icon {
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  padding: 0.2rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  box-shadow: 1px 1px 5px gray;
+}
+
+.name-icon img {
+  border-radius: 2rem;
+  width: 50px;
+  margin: 0.5rem;
+}
+
+.name-icon p {
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.acc-options-container {
+  border: 1px solid gray;
+  margin: 1rem;
+  height: 70vh;
+  background-color: rgb(91, 105, 184);
+  box-shadow: 1px 1px 5px gray;
+}
+
+.acc-options-container h2 {
+  color: #fff;
+}
+
+.acc-options {
+  font-size: 1.3rem;
+  padding: 1rem;
+  border: 1px solid gray;
+  margin: 1rem;
+  background-color: #fff;
+  /* border-left: 0;
+  border-right: 0; */
+}
