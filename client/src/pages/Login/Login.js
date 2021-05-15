@@ -1,5 +1,5 @@
 import logo from "../../images/logo.png";
-
+import { Copyright } from "../../components/Copyright/Copyright";
 import {
   Button,
   CssBaseline,
@@ -14,21 +14,19 @@ import {
   Container,
 } from "@material-ui/core";
 
-import { Copyright } from "../../components/Copyright/Copyright";
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(({ spacing }) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: spacing(3, 0, 2),
   },
 }));
 
@@ -95,7 +93,7 @@ export default function Login() {
               className={classes.submit}
               style={{
                 backgroundColor: "#de5246",
-                color: "white",
+                color: "#fff",
                 margin: "0 auto",
                 marginBottom: "2rem",
               }}

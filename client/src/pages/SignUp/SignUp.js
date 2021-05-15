@@ -14,23 +14,23 @@ import {
 import logo from "../../images/logo.png";
 import { Copyright } from "../../components/Copyright/Copyright";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(({ spacing, palette }) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    margin: spacing(1),
+    backgroundColor: palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: spacing(3),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: spacing(3, 0, 2),
   },
 }));
 
