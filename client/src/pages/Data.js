@@ -15,7 +15,7 @@ const Data = () => {
         fgColor={"#000000"}
         level={"L"}
         includeMargin={false}
-        renderAs={"canvas"}
+        renderAs={"svg"}
         imageSettings={{
           src: logo,
           x: null,

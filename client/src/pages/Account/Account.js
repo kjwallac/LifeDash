@@ -53,10 +53,9 @@ export const Account = (props) => {
               Create New Profile
             </Link>
             <button onClick={logout}>
-              <ExitToAppIcon />
-              Logout
+              <ExitToAppIcon /> Logout
             </button>
-          </div>{" "}
+          </div>
         </Fragment>
       )}
     </div>
