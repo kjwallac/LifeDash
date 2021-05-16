@@ -14,6 +14,7 @@ import {
 import logo from "../../images/logo.png";
 import { Copyright } from "../../components/Copyright/Copyright";
 import { useState } from "react";
+import axios from "axios";
 
 const useStyles = makeStyles(({ spacing }) => ({
   paper: {
@@ -38,16 +39,17 @@ export default function SignUp() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  const data = {
-    displayName: `${fname} ${lname}`,
-    firstName: fname,
-    lastName: lname,
-    email,
-    password,
-  };
-
-  const onSubmitBtn = (e) => {
+  const onSubmitBtn = async (e) => {
     e.preventDefault();
+
+    const dataInput = {
+      displayName: `${fname} ${lname}`,
+      firstName: fname,
+      lastName: lname,
+      email,
+      password,
+    };
+
     if (
       fname === "" ||
       fname === null ||
@@ -58,10 +60,10 @@ export default function SignUp() {
       password === "" ||
       password === null
     ) {
-      console.log("Please check all fields");
+      alert("Please check all fields");
     } else {
-      console.log("submitted");
-      console.log(data);
+      const { data } = await axios.post("/api/user/create", dataInput);
+      window.location.href = `/account/${data._id}`;
     }
   };
 

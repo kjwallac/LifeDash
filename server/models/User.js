@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema(
   {
     googleId: {
       type: String,
-      required: true,
     },
     displayName: {
       type: String,
@@ -19,8 +19,12 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    password: {
+      type: String,
+    },
     image: {
       type: String,
+      default: "https://via.placeholder.com/150",
     },
     createdAt: {
       type: Date,
@@ -29,5 +33,25 @@ const UserSchema = new Schema(
   },
   { timestamps: true }
 );
+
+UserSchema.pre("save", function (next) {
+  if (!this.isModified("password")) return next();
+  bcrypt.hash(this.password, 10, (err, passwordHash) => {
+    if (err) return next(err);
+    this.password = passwordHash;
+    next();
+  });
+});
+
+UserSchema.methods.comparePassword = function (password, callback) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
+    if (err) {
+      return callback(err);
+    } else {
+      if (!isMatch) return callback(null, isMatch);
+      return callback(null, this);
+    }
+  });
+};
 
 module.exports = model("User", UserSchema);

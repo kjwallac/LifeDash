@@ -31,6 +31,10 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }));
 
+/**
+ *
+ * Login Component
+ */
 export default function Login() {
   const classes = useStyles();
   const [email, setEmail] = useState(null);
@@ -41,6 +45,12 @@ export default function Login() {
     password,
   };
 
+  /**
+   * @function onSubmitBtn
+   * Submits info to db to compare against and login if in db
+   *
+   * @param {*} e To target events on button click
+   */
   const onSubmitBtn = (e) => {
     e.preventDefault();
     if (

@@ -11,6 +11,7 @@ export const API = {
   updateUser: (id) => {
     return axios.put(`/api/user/update/${id}`);
   },
+
   // PROFILES //////////////////////////////////
   getAllProfiles: () => {
     return axios.get("/api/profile");
@@ -27,8 +28,11 @@ export const API = {
   removeProfile: (id) => {
     return axios.delete(`/api/profile/remove/${id}`);
   },
+
   // LOGOUTS ACCOUNT //////////////////////////////////
   logout: () => {
     return axios.get("/api/google/logout");
   },
 };
+
+export default API;
