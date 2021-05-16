@@ -18,6 +18,10 @@ export const Account = (props) => {
     window.location.href = "/";
   };
 
+  if (false) {
+    console.log(userID);
+  }
+
   // Gets user info
   useEffect(() => {
     const getUser = async () => {

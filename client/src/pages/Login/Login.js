@@ -1,5 +1,3 @@
-import logo from "../../images/logo.png";
-import { Copyright } from "../../components/Copyright/Copyright";
 import {
   Button,
   CssBaseline,
@@ -13,6 +11,9 @@ import {
   makeStyles,
   Container,
 } from "@material-ui/core";
+import logo from "../../images/logo.png";
+import { Copyright } from "../../components/Copyright/Copyright";
+import { useState } from "react";
 
 const useStyles = makeStyles(({ spacing }) => ({
   paper: {
@@ -32,6 +33,27 @@ const useStyles = makeStyles(({ spacing }) => ({
 
 export default function Login() {
   const classes = useStyles();
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const data = {
+    email,
+    password,
+  };
+
+  const onSubmitBtn = (e) => {
+    e.preventDefault();
+    if (
+      email === "" ||
+      email === null ||
+      password === "" ||
+      password === null
+    ) {
+      alert("Please check all fields!");
+    } else {
+      console.log(data);
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -47,6 +69,7 @@ export default function Login() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
+            onChange={(e) => setEmail(e.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -58,6 +81,7 @@ export default function Login() {
             autoFocus
           />
           <TextField
+            onChange={(e) => setPassword(e.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -73,6 +97,7 @@ export default function Login() {
             label="Remember me"
           />
           <Button
+            onClick={onSubmitBtn}
             type="submit"
             fullWidth
             variant="contained"
@@ -89,7 +114,6 @@ export default function Login() {
               type="button"
               fullWidth
               variant="contained"
-              color="red"
               className={classes.submit}
               style={{
                 backgroundColor: "#de5246",

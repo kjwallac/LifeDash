@@ -13,17 +13,14 @@ import {
 } from "@material-ui/core";
 import logo from "../../images/logo.png";
 import { Copyright } from "../../components/Copyright/Copyright";
+import { useState } from "react";
 
-const useStyles = makeStyles(({ spacing, palette }) => ({
+const useStyles = makeStyles(({ spacing }) => ({
   paper: {
     marginTop: spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  avatar: {
-    margin: spacing(1),
-    backgroundColor: palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -36,6 +33,37 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [fname, setFname] = useState(null);
+  const [lname, setLname] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const data = {
+    displayName: `${fname} ${lname}`,
+    firstName: fname,
+    lastName: lname,
+    email,
+    password,
+  };
+
+  const onSubmitBtn = (e) => {
+    e.preventDefault();
+    if (
+      fname === "" ||
+      fname === null ||
+      lname === "" ||
+      lname === null ||
+      email === "" ||
+      email === null ||
+      password === "" ||
+      password === null
+    ) {
+      console.log("Please check all fields");
+    } else {
+      console.log("submitted");
+      console.log(data);
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -53,6 +81,7 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={(event) => setFname(event.target.value)}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -65,6 +94,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={(e) => setLname(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -76,6 +106,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                onChange={(e) => setEmail(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -87,6 +118,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                onChange={(e) => setPassword(e.target.value)}
                 variant="outlined"
                 required
                 fullWidth
@@ -105,7 +137,8 @@ export default function SignUp() {
             </Grid>
           </Grid>
           <Button
-            type="submit"
+            onClick={onSubmitBtn}
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
@@ -113,7 +146,7 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify="center">
             <Grid item>
               <Link href="/" variant="body2">
                 Already have an account? Sign in
