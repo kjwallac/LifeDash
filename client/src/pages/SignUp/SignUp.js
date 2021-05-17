@@ -50,16 +50,7 @@ export default function SignUp() {
       password,
     };
 
-    if (
-      fname === "" ||
-      fname === null ||
-      lname === "" ||
-      lname === null ||
-      email === "" ||
-      email === null ||
-      password === "" ||
-      password === null
-    ) {
+    if (!fname || !lname || !email || !password) {
       alert("Please check all fields");
     } else {
       const { data } = await axios.post("/api/user/create", dataInput);

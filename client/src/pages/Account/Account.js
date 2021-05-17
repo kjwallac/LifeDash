@@ -1,11 +1,119 @@
-import "./Account.css";
+// import "./Account.css";
+// import { useEffect, useState, Fragment } from "react";
+// import { API } from "../../utils/API";
+// import { ExitToApp as ExitToAppIcon } from "@material-ui/icons";
+// import { Loading } from "../../components/Loading";
+// import { Link } from "react-router-dom";
+
+// export const Account = (props) => {
+//   // States
+//   const [name, setName] = useState(null);
+//   const [image, setImage] = useState(null);
+//   const [userID, setUserID] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   // Logout user
+//   const logout = async () => {
+//     await API.logout();
+//     window.location.href = "/";
+//   };
+
+//   if (false) {
+//     console.log(userID);
+//   }
+
+//   // Gets user info
+//   useEffect(() => {
+//     getUser();
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, []);
+
+//   const getUser = async () => {
+//     const id = props.match.params.id;
+//     const user = await API.getUser(id);
+//     setName(user.data.displayName);
+//     setImage(user.data.image);
+//     setUserID(id);
+//     setLoading(false);
+//   };
+
+//   return (
+//     <div className="account-container">
+//       {loading ? (
+//         <Loading />
+//       ) : (
+//         <Fragment>
+//           <h1>Welcome!</h1>
+//           <div className="image-container">
+//             <div className="name-icon">
+//               <img src={image} alt="profile pic" />
+//               <p>{name}</p>
+//             </div>
+//           </div>
+//           <div className="acc-options-container">
+//             <h2>Account</h2>
+//             <Link to="/profile" className="acc-options">
+//               View Profiles
+//             </Link>
+//             <Link to="/profile/create" className="acc-options">
+//               Create New Profile
+//             </Link>
+//             <button onClick={logout}>
+//               <ExitToAppIcon /> Logout
+//             </button>
+//           </div>
+//         </Fragment>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Account;
+
+import clsx from "clsx";
+import {
+  makeStyles,
+  CssBaseline,
+  Box,
+  Container,
+  Grid,
+  Paper,
+} from "@material-ui/core";
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
-import { ExitToApp as ExitToAppIcon } from "@material-ui/icons";
 import { Loading } from "../../components/Loading";
 import { Link } from "react-router-dom";
+import { Copyright } from "../../components/Copyright/Copyright";
+import "./Account.css";
 
-export const Account = (props) => {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+  },
+  content: {
+    flexGrow: 1,
+    height: "100vh",
+    overflow: "auto",
+  },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: "flex",
+    overflow: "auto",
+    flexDirection: "column",
+  },
+  fixedHeight: {
+    height: 240,
+  },
+}));
+
+export default function Account(props) {
+  const classes = useStyles();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
   // States
   const [name, setName] = useState(null);
   const [image, setImage] = useState(null);
@@ -24,46 +132,75 @@ export const Account = (props) => {
 
   // Gets user info
   useEffect(() => {
-    const getUser = async () => {
-      const id = props.match.params.id;
-      const user = await API.getUser(id);
-      setName(user.data.displayName);
-      setImage(user.data.image);
-      setUserID(id);
-      setLoading(false);
-    };
-    return getUser();
-  });
+    getUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getUser = async () => {
+    const id = props.match.params.id;
+    const user = await API.getUser(id);
+    setName(user.data.displayName);
+    setImage(user.data.image);
+    setUserID(id);
+    setLoading(false);
+  };
 
   return (
-    <div className="account-container">
+    <div className={classes.root}>
+      <CssBaseline />
       {loading ? (
         <Loading />
       ) : (
         <Fragment>
-          <h1>Welcome!</h1>
-          <div className="image-container">
-            <div className="name-icon">
-              <img src={image} alt="profile pic" />
-              <p>{name}</p>
-            </div>
-          </div>
-          <div className="acc-options-container">
-            <h2>Account</h2>
-            <Link to="/profile" className="acc-options">
-              View Profiles
-            </Link>
-            <Link to="/profile/create" className="acc-options">
-              Create New Profile
-            </Link>
-            <button onClick={logout}>
-              <ExitToAppIcon /> Logout
-            </button>
-          </div>
+          <main className={classes.content}>
+            <Container maxWidth="lg" className={classes.container}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={8} lg={9}>
+                  <Paper className={fixedHeightPaper}>
+                    <h1 style={{ marginBottom: "1rem", textAlign: "center" }}>
+                      Welcome!
+                    </h1>
+                    <div className="image-container">
+                      <div className="name-icon">
+                        <img src={image} alt="profile pic" />
+                        <p>{name}</p>
+                      </div>
+                    </div>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={4} lg={3}>
+                  <Paper className={fixedHeightPaper}>
+                    <Link to="/profile" className="acc-options">
+                      View Profiles
+                    </Link>
+                    <Link to="/profile/create" className="acc-options">
+                      Create New Profile
+                    </Link>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                  <Paper className={classes.paper}>
+                    <button
+                      onClick={logout}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignContent: "center",
+                        padding: "0.5rem",
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </Paper>
+                </Grid>
+              </Grid>
+              <Box pt={4}>
+                <Copyright />
+              </Box>
+            </Container>
+          </main>
         </Fragment>
       )}
     </div>
   );
-};
-
-export default Account;
+}

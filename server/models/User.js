@@ -5,6 +5,7 @@ const UserSchema = new Schema(
   {
     googleId: {
       type: String,
+      unique: true,
     },
     displayName: {
       type: String,
@@ -18,6 +19,11 @@ const UserSchema = new Schema(
     lastName: {
       type: String,
       required: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+      match: /.+\@.+\..+/,
     },
     password: {
       type: String,
@@ -34,24 +40,14 @@ const UserSchema = new Schema(
   { timestamps: true }
 );
 
-UserSchema.pre("save", function (next) {
-  if (!this.isModified("password")) return next();
-  bcrypt.hash(this.password, 10, (err, passwordHash) => {
-    if (err) return next(err);
-    this.password = passwordHash;
+UserSchema.pre("save", async function (next) {
+  try {
+    const hashedPassword = await bcrypt.hash(this.password, 10);
+    this.password = hashedPassword;
     next();
-  });
+  } catch (err) {
+    next(err);
+  }
 });
-
-UserSchema.methods.comparePassword = function (password, callback) {
-  bcrypt.compare(password, this.password, (err, isMatch) => {
-    if (err) {
-      return callback(err);
-    } else {
-      if (!isMatch) return callback(null, isMatch);
-      return callback(null, this);
-    }
-  });
-};
 
 module.exports = model("User", UserSchema);

@@ -1,5 +1,13 @@
 const router = require("express").Router();
-const { findAll, findById, update, remove, create } = require("./userControls");
+const {
+  findAll,
+  findById,
+  update,
+  remove,
+  create,
+  login,
+} = require("./userControls");
+const { ensureAuth, ensureGuest } = require("../../middleware/auth");
 
 // Gets a list of users
 // @ /api/user/
@@ -7,7 +15,11 @@ router.get("/", findAll);
 
 // Gets user by id
 // @ /api/user/:id
-router.get("/:id", findById);
+router.get("/:id", ensureAuth, findById);
+
+// Gets Info to Login
+// @ /api/user/login
+router.post("/login", ensureGuest, login);
 
 // updates user // only affects our database
 // @ /api/user/update/:id

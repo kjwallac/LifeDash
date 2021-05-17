@@ -10,8 +10,10 @@ export const Loading = () => {
 };
 
 const style = {
+  margin: "0 auto",
   marginTop: "10rem",
   fontSize: "1.5rem",
+  textAlign: "center",
 };
 
 export default Loading;

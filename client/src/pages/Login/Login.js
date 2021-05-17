@@ -14,6 +14,7 @@ import {
 import logo from "../../images/logo.png";
 import { Copyright } from "../../components/Copyright/Copyright";
 import { useState } from "react";
+import axios from "axios";
 
 const useStyles = makeStyles(({ spacing }) => ({
   paper: {
@@ -51,17 +52,20 @@ export default function Login() {
    *
    * @param {*} e To target events on button click
    */
-  const onSubmitBtn = (e) => {
+  const onSubmitBtn = async (e) => {
     e.preventDefault();
-    if (
-      email === "" ||
-      email === null ||
-      password === "" ||
-      password === null
-    ) {
+    if (!email || !password) {
       alert("Please check all fields!");
     } else {
-      console.log(data);
+      const res = await axios.post("http://localhost:5000/api/user/login", {
+        email: data.email,
+        password: data.password,
+      });
+      if (res.statusText === "OK") {
+        window.location.href = `/account/${res.data._id}`;
+      } else {
+        alert("Please check all fields!");
+      }
     }
   };
 
