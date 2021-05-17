@@ -19,6 +19,15 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  findProfilesByUserId: async (req, res) => {
+    try {
+      const userProfiles = await Profile.find({ user: req.params.id });
+      res.status(200).json(userProfiles);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
   create: async ({ body }, res) => {
     try {
       const newProfile = await Profile.create(body);

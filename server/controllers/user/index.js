@@ -23,14 +23,14 @@ router.post("/login", ensureGuest, login);
 
 // updates user // only affects our database
 // @ /api/user/update/:id
-router.put("/update/:id", update);
+router.put("/update/:id", ensureAuth, update);
 
 // Creates user
 // @ /api/user/create
-router.post("/create", create);
+router.post("/create", ensureAuth, create);
 
 // removes user from database only
 // @ /api/user/remove/:id
-router.delete("/remove/:id", remove);
+router.delete("/remove/:id", ensureAuth, remove);
 
 module.exports = router;

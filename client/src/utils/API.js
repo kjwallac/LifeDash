@@ -19,6 +19,9 @@ export const API = {
   getProfile: (id) => {
     return axios.get(`/api/profile/${id}`, { withCredentials: true });
   },
+  getUserProfiles: (id) => {
+    return axios.get(`/api/profile/user/${id}`, { withCredentials: true });
+  },
   createProfile: () => {
     return axios.post("/api/profile/create", { withCredentials: true });
   },

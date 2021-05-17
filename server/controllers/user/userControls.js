@@ -14,6 +14,10 @@ module.exports = {
   findById: async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
+      req.session.name = user.displayName;
+      req.session.userID = user._id;
+      req.session.save();
+      console.log(req.session.name);
       res.status(200).json(user);
     } catch (err) {
       console.log(err.message);

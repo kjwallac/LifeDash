@@ -9,6 +9,7 @@ import CreateProfile from "./pages/Create/CreateProfile";
 import Bar from "./components/Bar";
 import Account from "./pages/Account/Account";
 import SignUp from "./pages/SignUp/SignUp";
+import ProfileList from "./pages/ProfileList/ProfileList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/account/:id" component={Account} />
         <Route exact path="/home" component={Home} />
+        <Route exact path="/profile/view/:id" component={ProfileList} />
         <Route exact path="/profile/create" component={CreateProfile} />
         <Route exact path="/profile/:profileId" component={Profile} />
         <Route path="/" component={ErrorPage} />
