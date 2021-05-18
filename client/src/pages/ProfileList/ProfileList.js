@@ -3,6 +3,8 @@ import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
 import { CssBaseline, List, ListItem } from "@material-ui/core";
 import { BackButton } from "../../components/BackButton/BackButton";
+import { Remove } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 export const ProfileList = (props) => {
   const [loading, setLoading] = useState(true);
@@ -66,29 +68,41 @@ export const ProfileList = (props) => {
                 quote,
                 status,
               }) => (
-                <ListItem
+                <Link
+                  to={`/profile/${_id}`}
                   key={_id}
-                  divider
-                  dense
-                  disableGutters
-                  style={{ marginBottom: "1rem" }}
+                  style={{ textDecoration: "none", color: "#333" }}
                 >
-                  <img
-                    src={profileImage}
-                    alt="profile"
-                    width="100px"
-                    style={{ marginRight: "0.8rem", borderRadius: "4rem" }}
-                  />
-                  <div style={{ margin: "0 auto", textAlign: "center" }}>
-                    <h2 style={{ margin: "0" }}>
-                      {firstName} {lastName}
-                    </h2>
-                    <h3 style={{ margin: "0" }}>
-                      {bornDate} - {deathDate}
-                    </h3>
-                    <p style={{ margin: "0" }}>{quote}</p>
-                  </div>
-                </ListItem>
+                  <ListItem
+                    divider
+                    dense
+                    disableGutters
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <img
+                      src={profileImage}
+                      alt="profile"
+                      width="100px"
+                      style={{ marginRight: "0.8rem", borderRadius: "4rem" }}
+                    />
+                    <div style={{ margin: "0 auto", textAlign: "center" }}>
+                      <h2 style={{ margin: "0" }}>
+                        {firstName} {lastName}
+                      </h2>
+                      <h3 style={{ margin: "0" }}>
+                        {bornDate}{" "}
+                        <Remove
+                          style={{
+                            display: "inline-flex",
+                            verticalAlign: "middle",
+                          }}
+                        />{" "}
+                        {deathDate}
+                      </h3>
+                      <p style={{ margin: "0" }}>{quote}</p>
+                    </div>
+                  </ListItem>
+                </Link>
               )
             )}
           </List>

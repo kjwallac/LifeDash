@@ -37,7 +37,7 @@ export default function CommentBox() {
   };
 
   return (
-    <div className="container">
+    <div className="container comment-box-container">
       <form
         onSubmit={onSubmit}
         ref={containerRef}

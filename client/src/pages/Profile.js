@@ -5,6 +5,7 @@ import ProfileBody from "../components/ProfileBody";
 import { useParams } from "react-router-dom";
 import { executeApiRequest } from "../utils/apiHelper";
 import CommentBox from "../components/commentsbox/CommentBox";
+import { BackButton } from "../components/BackButton/BackButton";
 // import ProfileLinks from "../components/ProfileLinks";
 
 export default function Profile() {
@@ -17,6 +18,7 @@ export default function Profile() {
 
   return (
     <>
+      <BackButton />
       {profile && (
         <>
           <ProfileHeader profile={profile} />

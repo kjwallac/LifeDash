@@ -31,7 +31,9 @@ export default function ProfileLinks({ profile, socialLinks }) {
                 key={socialLinks}
                 variant="body2"
                 className={classes.profData}
-              >{profile.socialLinks}</Typography>
+              >
+                {profile.socialLinks}
+              </Typography>
             ))}
           </Grid>
         </Grid>
