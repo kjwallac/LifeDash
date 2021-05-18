@@ -7,11 +7,13 @@ import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/Error";
 import CreateProfile from "./pages/Create/CreateProfile";
 import Bar from "./components/Bar";
+import Notifier from "./components/Notifier";
 
 function App() {
   return (
     <Router>
       <Bar />
+      <Notifier />
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/home" component={Home} />

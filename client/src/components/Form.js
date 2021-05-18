@@ -12,7 +12,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import SaveIcon from "@material-ui/icons/Save";
-import { executeApiRequest } from "../utils/apiHelper";
+import { executeApiRequest, notifyUser } from "../utils/apiHelper";
 import Container from "@material-ui/core/Container";
 // import CssBaseline from "@material-ui/core/CssBaseline";
 
@@ -37,14 +37,21 @@ export default function Form() {
   const [profile, setProfile] = useState({
     firstName: "",
     lastName: "",
-    bornDate: "",
-    deathDate: "",
+    bornDate: 1900,
+    deathDate: 1901,
     quote: "",
     bio: "",
+    profileImage: "",
+    images: [],
+    socialLinks: [],
+    qrCode: "qrcodehere",
+    status: "public",
+    createdAt: new Date(),
   });
 
+  const [profileId, setProfileId] = useState("");
+
   function genOnFieldChange(fieldName) {
-    debugger;
     return (event) => {
       const newProfile = { ...profile, [fieldName]: event.target.value };
       setProfile(newProfile);
@@ -52,7 +59,22 @@ export default function Form() {
   }
 
   async function submitProfile() {
-    executeApiRequest("api/profile/create", "POST", profile);
+    if (profileId) {
+      await executeApiRequest(
+        `/api/profile/update/${profileId}`,
+        "PUT",
+        profile
+      );
+      notifyUser("Profile has been updated");
+    } else {
+      const newProfile = await executeApiRequest(
+        "/api/profile/create",
+        "POST",
+        profile
+      );
+      setProfileId(newProfile._id);
+      notifyUser("Profile has been created");
+    }
   }
 
   // start adds additional input fields for photo links
@@ -72,7 +94,7 @@ export default function Form() {
     <>
       <Container maxWidth="sm">
         <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end" fullWidth>
+          <Grid container spacing={1} alignItems="flex-end">
             <Grid item>
               <AccountCircle />
             </Grid>
@@ -85,7 +107,7 @@ export default function Form() {
                 label="First Name"
                 input
                 type="text"
-                required="true"
+                required={true}
                 value={profile.firstName}
                 onChange={genOnFieldChange("firstName")}
               />
@@ -106,7 +128,7 @@ export default function Form() {
                 label="Last Name"
                 input
                 type="text"
-                required="true"
+                required={true}
                 value={profile.lastName}
                 onChange={genOnFieldChange("lastName")}
               />
@@ -126,10 +148,9 @@ export default function Form() {
                 id="bornDate"
                 label="Year of Birth"
                 type="number"
-                required="true"
+                required={true}
                 value={profile.bornDate}
                 onChange={genOnFieldChange("bornDate")}
-
               />
             </Grid>
           </Grid>
@@ -143,7 +164,8 @@ export default function Form() {
               <TextField
                 id="deathDate"
                 label="Year of Passing"
-                required="true"
+                type="number"
+                required={true}
                 value={profile.deathDate}
                 onChange={genOnFieldChange("deathDate")}
               />
@@ -176,10 +198,9 @@ export default function Form() {
               <TextField
                 id="bio"
                 label="Biography"
-                required="true"
+                required={true}
                 value={profile.bio}
                 onChange={genOnFieldChange("bio")}
-
                 multiline
               >
                 <input />
