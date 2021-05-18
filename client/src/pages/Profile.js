@@ -4,6 +4,7 @@ import SwiperPics from "../components/Swiper/Swiper";
 import ProfileBody from "../components/ProfileBody";
 import { useParams } from "react-router-dom";
 import { executeApiRequest } from "../utils/apiHelper";
+import CommentBox from "../components/commentsbox/CommentBox";
 // import ProfileLinks from "../components/ProfileLinks";
 
 export default function Profile() {
@@ -21,6 +22,7 @@ export default function Profile() {
           <ProfileHeader profile={profile} />
           <SwiperPics profile={profile} />
           <ProfileBody profile={profile} />
+          <CommentBox profile={profile} />
           {/* <ProfileLinks profile={profile}/> */}
         </>
       )}

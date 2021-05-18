@@ -1,7 +1,7 @@
 import "./Login.css";
 import axios from "axios";
 import { useEffect } from "react";
-import CommentBox from "../../components/CommentBox";
+import CommentBox from "../../components/commentsbox/CommentBox";
 
 const logout = async () => {
   await axios.get("/api/google/logout");
