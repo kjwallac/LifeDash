@@ -73,6 +73,10 @@ export default function Account(props) {
     setLoading(false);
   };
 
+  // Gets date and displays below the name card
+  const date = new Date().toLocaleDateString();
+  const time = new Date().toLocaleTimeString();
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -94,6 +98,9 @@ export default function Account(props) {
                         <p>{name}</p>
                       </div>
                     </div>
+                    <p style={{ margin: "0 auto" }}>
+                      {date} {time}
+                    </p>
                   </Paper>
                 </Grid>
                 <Grid item xs={12} md={4} lg={3}>

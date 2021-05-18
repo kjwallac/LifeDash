@@ -17,7 +17,6 @@ module.exports = {
       req.session.name = user.displayName;
       req.session.userID = user._id;
       req.session.save();
-      console.log(req.session.name);
       res.status(200).json(user);
     } catch (err) {
       console.log(err.message);
