@@ -1,9 +1,11 @@
 import "./CreateProfile.css";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const CreateProfile = () => {
   return (
     <div className="create-profile">
+      <BackButton style={{ width: "100px", margin: "1rem" }} />
       <h1>Create a Profile</h1>
       <HelpOutlineIcon
         style={{
