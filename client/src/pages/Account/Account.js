@@ -10,8 +10,9 @@ import {
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Copyright } from "../../components/Copyright/Copyright";
+import { ShowDate } from "../../components/ShowDate/ShowDate";
 import "./Account.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +41,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Account(props) {
   const classes = useStyles();
+  const history = useHistory();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const { date, time, wish } = ShowDate();
 
   // States
   const [name, setName] = useState(null);
@@ -51,7 +54,7 @@ export default function Account(props) {
   // Logout user
   const logout = async () => {
     await API.logout();
-    window.location.href = "/";
+    history.push("/");
   };
 
   if (false) {
@@ -73,10 +76,6 @@ export default function Account(props) {
     setLoading(false);
   };
 
-  // Gets date and displays below the name card
-  const date = new Date().toLocaleDateString();
-  const time = new Date().toLocaleTimeString();
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -90,7 +89,7 @@ export default function Account(props) {
                 <Grid item xs={12} md={8} lg={9}>
                   <Paper className={fixedHeightPaper}>
                     <h1 style={{ marginBottom: "1rem", textAlign: "center" }}>
-                      Welcome!
+                      {wish}
                     </h1>
                     <div className="image-container">
                       <div className="name-icon">
@@ -125,6 +124,12 @@ export default function Account(props) {
                         justifyContent: "center",
                         alignContent: "center",
                         padding: "0.5rem",
+                        maxWidth: "500px",
+                        minWidth: "300px",
+                        textAlign: "center",
+                        margin: "0 auto",
+                        boxShadow: "1px 1px 1px gray",
+                        borderRadius: "5px",
                       }}
                     >
                       Logout

@@ -30,7 +30,7 @@
 .acc-options {
   font-size: 1.3rem;
   padding: 1rem;
-  border: 1px solid gray;
+  border: 1px solid #45b;
   margin: 1rem;
   background-color: #45b;
   display: flex;
@@ -38,4 +38,6 @@
   align-items: center;
   text-decoration: none;
   color: white;
+  box-shadow: 0 2px 1px gray;
+  border-radius: 5px;
 }
