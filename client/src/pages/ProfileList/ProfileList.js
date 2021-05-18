@@ -2,6 +2,7 @@ import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
 import { CssBaseline, List, ListItem } from "@material-ui/core";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const ProfileList = (props) => {
   const [loading, setLoading] = useState(true);
@@ -21,21 +22,33 @@ export const ProfileList = (props) => {
 
   return (
     <Fragment>
-      <CssBaseline />
       {loading ? (
         <Loading />
       ) : (
         <Fragment>
-          <h1
+          <CssBaseline />
+          <div
             style={{
-              margin: "1.5rem auto",
-              textAlign: "center",
+              display: "flex",
               borderBottom: "1px solid gray",
-              padding: "1rem",
+              marginBottom: "2rem",
+              marginTop: "1rem",
+              padding: "0.3rem",
+              alignContent: "center",
+              justifyContent: "center",
             }}
           >
-            Profiles Curated: {data.length}
-          </h1>
+            <BackButton />
+            <h2
+              style={{
+                margin: "0 auto",
+                textAlign: "center",
+                padding: "1rem",
+              }}
+            >
+              Profiles Curated: {data.length}
+            </h2>
+          </div>
           <List
             style={{
               margin: "1rem",
