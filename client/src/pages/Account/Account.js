@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import {
   makeStyles,
   CssBaseline,
@@ -7,6 +6,7 @@ import {
   Grid,
   Paper,
 } from "@material-ui/core";
+import clsx from "clsx";
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
@@ -128,8 +128,9 @@ export default function Account(props) {
                         minWidth: "300px",
                         textAlign: "center",
                         margin: "0 auto",
-                        boxShadow: "1px 1px 1px gray",
+                        boxShadow: "0 1px 1px lightgray",
                         borderRadius: "5px",
+                        borderColor: "lightgray",
                       }}
                     >
                       Logout
