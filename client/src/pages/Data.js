@@ -1,6 +1,6 @@
 import React from "react";
 import QRCode from "qrcode.react";
-import logo from "../images/logo.png";
+// import logo from "../images/logo.png";
 
 const Data = () => {
   const profileId = "6096d4f37db3bb974d03154e";
@@ -17,7 +17,7 @@ const Data = () => {
         includeMargin={false}
         renderAs={"canvas"}
         imageSettings={{
-          src: logo,
+          src: "/images/logo.png",
           x: null,
           y: null,
           height: 24,

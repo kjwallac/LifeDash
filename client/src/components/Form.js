@@ -172,6 +172,7 @@ export default function Form() {
             </Grid>
           </Grid>
         </div>
+
         <div className={classes.margin}>
           <Grid container spacing={1} alignItems="flex-end">
             <Grid item>
@@ -181,7 +182,7 @@ export default function Form() {
               <TextField
                 id="quote"
                 label="Quote"
-                required="true"
+                required={true}
                 value={profile.quote}
                 onChange={genOnFieldChange("quote")}
               />
@@ -208,6 +209,24 @@ export default function Form() {
             </Grid>
           </Grid>
         </div>
+
+        <div className={classes.margin}>
+          <Grid container spacing={1} alignItems="flex-end">
+            <Grid item>
+              <AccountCircle />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="profileImage"
+                label="Profile Image"
+                required={true}
+                value={profile.profileImage}
+                onChange={genOnFieldChange("profileImage")}
+              />
+            </Grid>
+          </Grid>
+        </div>
+
         {/* begin code to duplicate each time new photo is click */}
         {/* {fields.map((field, idx) => {
           return (
@@ -234,6 +253,8 @@ export default function Form() {
           );
         })} */}
         {/* end code to duplicate each time new photo is click */}
+
+
         <Grid className={classes.buttonRoot} item xs={3}>
           <ButtonGroup
             color="primary"
