@@ -5,7 +5,7 @@ const {
   update,
   create,
   remove,
-} = require("./profileControls");
+} = require("./profileController");
 
 // Gets all profiles
 router.get("/", findAll);

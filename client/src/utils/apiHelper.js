@@ -3,7 +3,7 @@ export function setNotifier(notifier) {
   _notifier = notifier;
 }
 
-function notifyUser(message) {
+export function notifyUser(message) {
   if (_notifier) {
     _notifier(message);
   }
