@@ -37,7 +37,7 @@ export default function CommentBox() {
   };
 
   return (
-    <div className="container comment-box-container">
+    <div className="comment-box-container">
       <form
         onSubmit={onSubmit}
         ref={containerRef}
@@ -59,7 +59,7 @@ export default function CommentBox() {
             <span>User Name</span>
           </div>
         </div>
-        <label htmlFor="comment">What are your thoughts?</label>
+        <label htmlFor="comment" style={{padding: "1rem"}}>What are your thoughts?</label>
         <textarea
           ref={textRef}
           onClick={onExpand}

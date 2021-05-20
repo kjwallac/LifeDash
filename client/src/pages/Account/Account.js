@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { Copyright } from "../../components/Copyright/Copyright";
 import { ShowDate } from "../../components/ShowDate/ShowDate";
 import "./Account.css";
@@ -39,16 +39,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Account(props) {
+export default function Account() {
   const classes = useStyles();
   const history = useHistory();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const { date, time, wish } = ShowDate();
+  const { id } = useParams();
 
   // States
   const [name, setName] = useState(null);
   const [image, setImage] = useState(null);
-  const [userID, setUserID] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Logout user
@@ -57,10 +57,6 @@ export default function Account(props) {
     history.push("/");
   };
 
-  if (false) {
-    console.log(userID);
-  }
-
   // Gets user info
   useEffect(() => {
     getUser();
@@ -68,11 +64,9 @@ export default function Account(props) {
   }, []);
 
   const getUser = async () => {
-    const id = props.match.params.id;
-    const user = await API.getUser(id);
-    setName(user.data.displayName);
-    setImage(user.data.image);
-    setUserID(id);
+    const { data } = await API.getUser(id);
+    setName(data.displayName);
+    setImage(data.image);
     setLoading(false);
   };
 
@@ -104,10 +98,7 @@ export default function Account(props) {
                 </Grid>
                 <Grid item xs={12} md={4} lg={3}>
                   <Paper className={fixedHeightPaper}>
-                    <Link
-                      to={`/profile/view/${userID}`}
-                      className="acc-options"
-                    >
+                    <Link to={`/profile/view/${id}`} className="acc-options">
                       View Profiles
                     </Link>
                     <Link to="/profile/create" className="acc-options">

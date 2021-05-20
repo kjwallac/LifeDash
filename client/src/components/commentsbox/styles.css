@@ -7,11 +7,16 @@
     --transition-cm: 0.4s ease;
     --font-family-cm: Arial, Helvetica, sans-serif;
   }
+
   
   .comment-box-container * {
     box-sizing: border-box;
   }
   
+  .comment-box-container { 
+    padding: 1rem;
+  }
+
   .comment-box-container body {
     font-family: var(--font-family-cm);
   }

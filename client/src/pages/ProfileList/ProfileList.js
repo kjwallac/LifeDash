@@ -4,11 +4,12 @@ import { Loading } from "../../components/Loading";
 import { CssBaseline, List, ListItem } from "@material-ui/core";
 import { BackButton } from "../../components/BackButton/BackButton";
 import { Remove } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export const ProfileList = (props) => {
+export const ProfileList = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     fetchData();
@@ -16,7 +17,6 @@ export const ProfileList = (props) => {
   }, []);
 
   const fetchData = async () => {
-    const { id } = props.match.params;
     const res = await API.getUserProfiles(id);
     setData(res.data);
     setLoading(false);
