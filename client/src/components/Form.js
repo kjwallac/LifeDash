@@ -254,7 +254,6 @@ export default function Form() {
         })} */}
         {/* end code to duplicate each time new photo is click */}
 
-
         <Grid className={classes.buttonRoot} item xs={3}>
           <ButtonGroup
             color="primary"

@@ -1,6 +1,10 @@
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
+import { BackButton } from "../../components/BackButton/BackButton";
+import { Remove } from "@material-ui/icons";
+import { Link, useParams } from "react-router-dom";
+import { Edit } from "../../components/Edit";
 import {
   CssBaseline,
   List,
@@ -8,9 +12,6 @@ import {
   Avatar,
   makeStyles,
 } from "@material-ui/core";
-import { BackButton } from "../../components/BackButton/BackButton";
-import { Remove } from "@material-ui/icons";
-import { Link, useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   large: {
@@ -111,6 +112,7 @@ export const ProfileList = () => {
                       <p style={{ margin: "0" }}>{quote}</p>
                     </div>
                   </ListItem>
+                  <Edit />
                 </Link>
               )
             )}
