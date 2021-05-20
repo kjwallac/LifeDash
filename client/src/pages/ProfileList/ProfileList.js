@@ -2,7 +2,7 @@ import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
 import { BackButton } from "../../components/BackButton/BackButton";
-import { Remove } from "@material-ui/icons";
+import { Remove as Dash } from "@material-ui/icons";
 import { Link, useParams } from "react-router-dom";
 import { Edit } from "../../components/Edit";
 import {
@@ -15,8 +15,8 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   large: {
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: theme.spacing(6),
+    height: theme.spacing(6),
   },
 }));
 
@@ -44,34 +44,11 @@ export const ProfileList = () => {
       ) : (
         <Fragment>
           <CssBaseline />
-          <div
-            style={{
-              display: "flex",
-              borderBottom: "1px solid gray",
-              marginBottom: "2rem",
-              marginTop: "1rem",
-              padding: "0.3rem",
-              alignContent: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div style={headerContainer}>
             <BackButton />
-            <h2
-              style={{
-                margin: "0 auto",
-                textAlign: "center",
-                padding: "1rem",
-              }}
-            >
-              Profiles Curated: {data.length}
-            </h2>
+            <h2 style={profileCurated}>Profiles Curated: {data.length}</h2>
           </div>
-          <List
-            style={{
-              margin: "1rem",
-              padding: "0 0.5rem",
-            }}
-          >
+          <List style={ulStyle}>
             {data.map(
               ({
                 _id,
@@ -80,40 +57,26 @@ export const ProfileList = () => {
                 bornDate,
                 deathDate,
                 profileImage,
-                quote,
                 status,
               }) => (
-                <Link
-                  to={`/profile/${_id}`}
-                  key={_id}
-                  style={{ textDecoration: "none", color: "#333" }}
-                >
-                  <ListItem
-                    divider
-                    dense
-                    disableGutters
-                    style={{ marginBottom: "1rem" }}
-                  >
-                    <Avatar src={profileImage} className={classes.large} />
-                    <div style={{ margin: "0 auto", textAlign: "center" }}>
-                      <h2 style={{ margin: "0" }}>
+                <ListItem divider dense disableGutters style={listitem}>
+                  <Link to={`/profile/${_id}`} key={_id} style={link}>
+                    <Avatar
+                      src={profileImage}
+                      className={classes.large}
+                      style={avatar}
+                    />
+                    <div style={nameContainer}>
+                      <h3 style={nameStyle}>
                         {firstName} {lastName}
-                      </h2>
-                      <h3 style={{ margin: "0" }}>
-                        {bornDate}{" "}
-                        <Remove
-                          style={{
-                            display: "inline-flex",
-                            verticalAlign: "middle",
-                          }}
-                        />{" "}
-                        {deathDate}
                       </h3>
-                      <p style={{ margin: "0" }}>{quote}</p>
+                      <h4 style={m0}>
+                        {bornDate} <Dash style={dashStyle} /> {deathDate}
+                      </h4>
                     </div>
-                  </ListItem>
+                  </Link>
                   <Edit />
-                </Link>
+                </ListItem>
               )
             )}
           </List>
@@ -121,6 +84,69 @@ export const ProfileList = () => {
       )}
     </Fragment>
   );
+};
+
+const {
+  listitem,
+  link,
+  avatar,
+  nameContainer,
+  nameStyle,
+  m0,
+  dashStyle,
+  headerContainer,
+  profileCurated,
+  ulStyle,
+} = {
+  headerContainer: {
+    display: "flex",
+    borderBottom: "1px solid gray",
+    marginBottom: "2rem",
+    marginTop: "1rem",
+    padding: "0.3rem",
+    alignContent: "center",
+    justifyContent: "center",
+  },
+  profileCurated: {
+    margin: "0 auto",
+    textAlign: "center",
+    padding: "1rem",
+  },
+  ulStyle: {
+    margin: "1rem",
+    padding: "0 0.5rem",
+  },
+  listitem: {
+    marginBottom: "1rem",
+    display: "flex",
+    // border: "1px solid red",
+    justifyContent: "space-around",
+  },
+  link: {
+    textDecoration: "none",
+    color: "#333",
+    display: "flex",
+    // border: "1px solid red",
+    padding: "0.5rem",
+  },
+  avatar: {
+    marginRight: "1rem",
+  },
+  nameContainer: {
+    margin: "0 auto",
+    textAlign: "center",
+  },
+  nameStyle: {
+    margin: "0",
+    letterSpacing: "0.1rem",
+  },
+  m0: {
+    margin: 0,
+  },
+  dashStyle: {
+    display: "inline-flex",
+    verticalAlign: "middle",
+  },
 };
 
 export default ProfileList;
