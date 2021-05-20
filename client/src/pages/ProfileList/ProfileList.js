@@ -1,12 +1,26 @@
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
-import { CssBaseline, List, ListItem } from "@material-ui/core";
+import {
+  CssBaseline,
+  List,
+  ListItem,
+  Avatar,
+  makeStyles,
+} from "@material-ui/core";
 import { BackButton } from "../../components/BackButton/BackButton";
 import { Remove } from "@material-ui/icons";
 import { Link, useParams } from "react-router-dom";
 
+const useStyles = makeStyles((theme) => ({
+  large: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+  },
+}));
+
 export const ProfileList = () => {
+  const classes = useStyles();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const { id } = useParams();
@@ -79,12 +93,7 @@ export const ProfileList = () => {
                     disableGutters
                     style={{ marginBottom: "1rem" }}
                   >
-                    <img
-                      src={profileImage}
-                      alt="profile"
-                      width="100px"
-                      style={{ marginRight: "0.8rem", borderRadius: "4rem" }}
-                    />
+                    <Avatar src={profileImage} className={classes.large} />
                     <div style={{ margin: "0 auto", textAlign: "center" }}>
                       <h2 style={{ margin: "0" }}>
                         {firstName} {lastName}
