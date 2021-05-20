@@ -10,11 +10,13 @@ import Bar from "./components/Bar";
 import Account from "./pages/Account/Account";
 import SignUp from "./pages/SignUp/SignUp";
 import ProfileList from "./pages/ProfileList/ProfileList";
+import Notifier from "./components/Notifier";
 
 function App() {
   return (
     <Router>
       <Bar />
+      <Notifier />
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/signup" component={SignUp} />

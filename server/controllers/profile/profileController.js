@@ -28,9 +28,12 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  create: async ({ body }, res) => {
+  create: async (req, res) => {
     try {
-      const newProfile = await Profile.create(body);
+      const profile = req.body;
+      console.log({ profile, user: req.user });
+      profile.user = req.user._id;
+      const newProfile = await Profile.create(profile);
       res.status(200).json(newProfile);
     } catch (err) {
       console.log(err.message);

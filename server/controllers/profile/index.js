@@ -6,7 +6,7 @@ const {
   create,
   remove,
   findProfilesByUserId,
-} = require("./profileControls");
+} = require("./profileController");
 
 // Gets all profiles
 router.get("/", findAll);

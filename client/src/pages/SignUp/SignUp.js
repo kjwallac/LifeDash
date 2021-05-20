@@ -11,10 +11,11 @@ import {
   makeStyles,
   Container,
 } from "@material-ui/core";
-import logo from "../../images/logo.png";
 import { Copyright } from "../../components/Copyright/Copyright";
 import { useState } from "react";
 import axios from "axios";
+
+const logo = "/images/logo.png";
 
 const useStyles = makeStyles(({ spacing }) => ({
   paper: {
