@@ -1,0 +1,137 @@
+:root {
+    --black-cm: #333;
+    --white-cm: #fff;
+    --gray-cm: #aaa;
+    --green-cm: #1a8917;
+    --border-radius-cm: 4px;
+    --transition-cm: 0.4s ease;
+    --font-family-cm: Arial, Helvetica, sans-serif;
+  }
+
+  
+  .comment-box-container * {
+    box-sizing: border-box;
+  }
+  
+  .comment-box-container { 
+    padding: 1rem;
+  }
+
+  .comment-box-container body {
+    font-family: var(--font-family-cm);
+  }
+  
+  .comment-box-container textarea {
+    font-family: var(--font-family-cm);
+    border: none;
+    resize: none;
+  }
+  
+  .comment-box-container textarea::placeholder {
+    color: var(--gray-cm);
+  }
+  
+  .comment-box-container label {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  .comment-box-container button {
+    cursor: pointer;
+  }
+  
+  .comment-box-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .comment-box-container button[type="submit"] {
+    background: var(--green-cm);
+    color: var(--white-cm);
+    border-radius: var(--border-radius-cm);
+  }
+  
+  .comment-box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 50px auto;
+    background: var(--white-cm);
+    border-radius: var(--border-radius-cm);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 14px;
+    transition: min-height var(--transition-cm);
+    max-height: 46px;
+  }
+  
+  .header {
+    transition: opacity var(--transition-cm) 0.2s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user img {
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+  
+  .comment-field {
+    color: var(--black-cm);
+    transition: transform var(--transition-cm);
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+    padding: 0;
+    min-height: 60px;
+    transform: translateY(-32px);
+    line-height: 1;
+  }
+  
+  .comment-box.expanded .comment-field {
+    transform: translateY(40px);
+  }
+  
+  .comment-box.expanded .header {
+    transform: translateY(10px);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .actions {
+    width: 100%;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    margin-top: 50px;
+    opacity: 0;
+    transition: opacity var(--transition-cm) 0.2s;
+  }
+  
+  .comment-box.expanded .actions {
+    opacity: 1;
+  }
+  
+  .actions button {
+    margin-left: 6px;
+    font-size: 14px;
+    padding: 12px;
+    border: none;
+    line-height: 1;
+  }
+  
+  .actions .cancel {
+    background: none;
+  }
+  
+  .comment-box.modified {
+    max-height: unset;
+  }
+  

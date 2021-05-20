@@ -5,6 +5,7 @@ const {
   update,
   create,
   remove,
+  findProfilesByUserId,
 } = require("./profileController");
 
 // Gets all profiles
@@ -12,6 +13,9 @@ router.get("/", findAll);
 
 // Gets profile by id
 router.get("/:id", findById);
+
+// Gets profile by user id
+router.get("/user/:id", findProfilesByUserId);
 
 // Creates profile
 router.post("/create", create);

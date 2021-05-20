@@ -1,10 +1,11 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema(
   {
     googleId: {
       type: String,
-      required: true,
+      unique: true,
     },
     displayName: {
       type: String,
@@ -19,8 +20,17 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    email: {
+      type: String,
+      unique: true,
+      match: /.+\@.+\..+/,
+    },
+    password: {
+      type: String,
+    },
     image: {
       type: String,
+      default: "https://via.placeholder.com/150",
     },
     createdAt: {
       type: Date,
@@ -29,5 +39,15 @@ const UserSchema = new Schema(
   },
   { timestamps: true }
 );
+
+UserSchema.pre("save", async function (next) {
+  try {
+    const hashedPassword = await bcrypt.hash(this.password, 10);
+    this.password = hashedPassword;
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = model("User", UserSchema);

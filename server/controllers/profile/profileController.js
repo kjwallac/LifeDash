@@ -19,10 +19,19 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  findProfilesByUserId: async (req, res) => {
+    try {
+      const userProfiles = await Profile.find({ user: req.params.id });
+      res.status(200).json(userProfiles);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
   create: async (req, res) => {
     try {
       const profile = req.body;
-      console.log({profile, user: req.user});
+      console.log({ profile, user: req.user });
       profile.user = req.user._id;
       const newProfile = await Profile.create(profile);
       res.status(200).json(newProfile);

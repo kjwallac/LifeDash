@@ -32,6 +32,7 @@ app.use(
     origin: "*",
     methods: "GET, POST, PATCH, DELETE, PUT",
     allowedHeaders: "Content-Type, Authorization",
+    credentials: true,
   })
 );
 app.use(compression());
@@ -54,10 +55,14 @@ app.use(
   session({
     secret: "kitkat dogt",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
     }),
+    cookie: {
+      path: "/",
+      httpOnly: false,
+    },
   })
 );
 

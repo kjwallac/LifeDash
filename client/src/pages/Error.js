@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import SadFace from "@material-ui/icons/SentimentVeryDissatisfied";
+import { SentimentVeryDissatisfied as SadFace } from "@material-ui/icons";
 
 export const ErrorPage = () => {
   return (
