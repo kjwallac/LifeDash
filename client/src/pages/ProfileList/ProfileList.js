@@ -59,8 +59,14 @@ export const ProfileList = () => {
                 profileImage,
                 status,
               }) => (
-                <ListItem divider dense disableGutters style={listitem}>
-                  <Link to={`/profile/${_id}`} key={_id} style={link}>
+                <ListItem
+                  divider
+                  dense
+                  disableGutters
+                  style={listitem}
+                  key={_id}
+                >
+                  <Link to={`/profile/${_id}`} style={link}>
                     <Avatar
                       src={profileImage}
                       className={classes.large}
@@ -75,7 +81,7 @@ export const ProfileList = () => {
                       </h4>
                     </div>
                   </Link>
-                  <Edit />
+                  <Edit id={_id} />
                 </ListItem>
               )
             )}
