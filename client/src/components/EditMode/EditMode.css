@@ -1,0 +1,63 @@
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-shadow: 2px 1px 5px gray;
+  border: 1px solid lightgray;
+}
+
+.edit-header {
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.image-change {
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  background-color: rgb(226, 226, 226);
+}
+
+
+.edit-input-label {
+  margin-top: 1rem;
+  justify-self: flex-start;
+  width: 100%;
+}
+
+.edit-container-name {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-input-form {
+  margin: 0.3rem;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: rgb(226, 226, 226);
+}
+
+.year-to-year {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.edit-list-container {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.edit-list-container li {
+  padding: 0.5rem;
+}
+
+

@@ -121,18 +121,20 @@ const {
   ulStyle: {
     margin: "1rem",
     padding: "0 0.5rem",
+    // display: "flex",
+    // flexDirection: "column",
   },
   listitem: {
     marginBottom: "1rem",
     display: "flex",
-    // border: "1px solid red",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    width: "100%",
   },
   link: {
     textDecoration: "none",
     color: "#333",
     display: "flex",
-    // border: "1px solid red",
+    flexBasis: "80%",
     padding: "0.5rem",
   },
   avatar: {
@@ -144,7 +146,6 @@ const {
   },
   nameStyle: {
     margin: "0",
-    letterSpacing: "0.1rem",
   },
   m0: {
     margin: 0,

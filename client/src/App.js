@@ -11,6 +11,7 @@ import Account from "./pages/Account/Account";
 import SignUp from "./pages/SignUp/SignUp";
 import ProfileList from "./pages/ProfileList/ProfileList";
 import Notifier from "./components/Notifier";
+import EditMode from "./components/EditMode/EditMode";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/profile/view/:id" component={ProfileList} />
         <Route exact path="/profile/create" component={CreateProfile} />
         <Route exact path="/profile/:profileId" component={Profile} />
+        <Route exact path="/profile/edit/:id" component={EditMode} />
         <Route path="/" component={ErrorPage} />
       </Switch>
     </Router>

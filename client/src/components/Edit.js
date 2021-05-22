@@ -3,20 +3,17 @@ import { Backspace } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQrcode, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { API } from "../utils/API";
-import { useState } from "react";
 
-export function Edit({ id, loadScreen }) {
-  const [loading, setLoading] = useState(loadScreen);
-
+export function Edit({ id }) {
   const qrBtn = () => {
     console.log("Clicked qr");
     console.log(id);
-    setLoading(true);
   };
 
   const editBtn = () => {
     console.log("Clicked edit");
     console.log(id);
+    window.location.href = `/profile/edit/${id}`;
   };
 
   const removeBtn = async () => {
@@ -60,6 +57,8 @@ const style = {
   whiteSpace: "no-wrap",
   display: "flex",
   flexWrap: "nowrap",
+  flexBasis: "20%",
+  justifyContent: "flex-end",
 };
 
 export default Edit;
