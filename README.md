@@ -12,7 +12,8 @@
 
 ## Description
 When visiting a memorial site, information of a departed is limited to the space on a grave or memorial plaque. 
-Life-Dash allows users to glimpse into the life which the hyphen between dates represents, by using QR code technology to access public profiles. 
+Life-Dash allows users to glimpse into the life which the hyphen between dates represents. With QR technology, users are
+able to view read a detailed biography, as well as view pictures and share memories or thoughts. 
 
 Users can securely login into the application through google, or by creating an account. 
 
