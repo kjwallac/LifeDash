@@ -14,6 +14,7 @@ import Notifier from "./components/Notifier";
 
 function App() {
   return (
+    <div style={{backgroundImage: "url(/images/gplaypattern.png)"}}>
     <Router>
       <Bar />
       <Notifier />
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" component={ErrorPage} />
       </Switch>
     </Router>
+    </div>
   );
 }
 

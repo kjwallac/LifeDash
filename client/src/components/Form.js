@@ -1,34 +1,25 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import AddPhotoAlternateRoundedIcon from "@material-ui/icons/AddPhotoAlternateRounded";
 import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import SaveIcon from "@material-ui/icons/Save";
 import { executeApiRequest, notifyUser } from "../utils/apiHelper";
 import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import AddImageDialog from "./AddImageDialog";
+import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
+import PeopleIcon from "@material-ui/icons/People";
+import CakeIcon from "@material-ui/icons/Cake";
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import ComputerIcon from "@material-ui/icons/Computer";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: "25ch",
-  },
-  margin: {
-    margin: theme.spacing(1),
-  },
 }));
 
 export default function Form() {
@@ -103,159 +94,205 @@ export default function Form() {
         dialogOpen={imageCaptureDialogOpen}
       />
       <Container maxWidth="sm">
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="center">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                inputProps={{
-                  maxLength: 50,
-                }}
-                id="firstName"
-                label="First Name"
-                type="text"
-                required
-                value={profile.firstName}
-                onChange={genOnFieldChange("firstName")}
-              />
-            </Grid>
-          </Grid>
-        </div>
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <PersonOutlineIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            inputProps={{
+              maxLength: 30,
+            }}
+            id="firstName"
+            label="First Name"
+            type="text"
+            required
+            value={profile.firstName}
+            onChange={genOnFieldChange("firstName")}
+          />
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <PeopleIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            inputProps={{
+              maxLength: 50,
+            }}
+            id="lastName"
+            label="Last Name"
+            type="text"
+            required
+            value={profile.lastName}
+            onChange={genOnFieldChange("lastName")}
+          />
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <CakeIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            inputProps={{
+              maxLength: 4,
+            }}
+            id="bornDate"
+            label="Year of Birth"
+            type="number"
+            required
+            value={profile.bornDate}
+            onChange={genOnFieldChange("bornDate")}
+          />
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <LocalFloristIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            id="deathDate"
+            label="Year of Passing"
+            type="number"
+            required
+            value={profile.deathDate}
+            onChange={genOnFieldChange("deathDate")}
+          />
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <FormatQuoteIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            id="quote"
+            label="Quote"
+            value={profile.quote}
+            onChange={genOnFieldChange("quote")}
+          />
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <MenuBookIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            id="bio"
+            label="Biography"
+            value={profile.bio}
+            onChange={genOnFieldChange("bio")}
+            multiline
+          >
+            <input />
+          </TextField>
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <ComputerIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            id="socialLinks"
+            label="Social Media Link"
+            value={profile.socialLinks}
+            onChange={genOnFieldChange("socialLinks")}
+          />
+        </Grid>
+        <br />
+        <Grid item xs={12} alignItems="center">
+          <TextField
+            variant="outlined"
+            size="small"
+            fullWidth
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <AccountBoxIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            id="profileImage"
+            label="Profile Image"
+            value={profile.profileImage}
+            onChange={genOnFieldChange("profileImage")}
+          />
+        </Grid>
+
         <div className={classes.margin}>
           <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                inputProps={{
-                  maxLength: 50,
-                }}
-                id="lastName"
-                label="Last Name"
-                type="text"
-                required
-                value={profile.lastName}
-                onChange={genOnFieldChange("lastName")}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                inputProps={{
-                  maxLength: 4,
-                }}
-                id="bornDate"
-                label="Year of Birth"
-                type="number"
-                required
-                value={profile.bornDate}
-                onChange={genOnFieldChange("bornDate")}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                id="deathDate"
-                label="Year of Passing"
-                type="number"
-                required
-                value={profile.deathDate}
-                onChange={genOnFieldChange("deathDate")}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                id="quote"
-                label="Quote"
-                value={profile.quote}
-                onChange={genOnFieldChange("quote")}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                id="bio"
-                label="Biography"
-                value={profile.bio}
-                onChange={genOnFieldChange("bio")}
-                multiline
-              >
-                <input />
-              </TextField>
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                id="profileImage"
-                label="Profile Image"
-                value={profile.profileImage}
-                onChange={genOnFieldChange("profileImage")}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField
-                id="socialLinks"
-                label="Social Media Link"
-                value={profile.socialLinks}
-                onChange={genOnFieldChange("socialLinks")}
-              />
-            </Grid>
-          </Grid>
-        </div>
-        <div className={classes.margin}>
-          <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
             <Grid item>
               <div>
                 {profile.images.map((url) => (
                   <React.Fragment key={url}>
-                    <img src={url} alt="additional url" style={{width:"100%"}}/>
+                    <img
+                      src={url}
+                      alt="additional url"
+                      style={{ width: "100%" }}
+                    />
                     <br />
                   </React.Fragment>
                 ))}
@@ -267,22 +304,21 @@ export default function Form() {
           </Grid>
         </div>
 
-        <Grid className={classes.buttonRoot} item xs={3}>
-          <ButtonGroup
-            color="primary"
-            aria-label="outlined primary button group"
-          >
+        <Grid 
+        fullWidth
+        item xs={12}>
             <Button
-              variant="contained"
-              color="primary"
-              size="large"
+              variant="outlined"
+              style={{
+                color:'#3CB685',
+              }}
+              size="medium"
               className={classes.button}
               startIcon={<SaveIcon />}
               onClick={submitProfile}
             >
               Save
             </Button>
-          </ButtonGroup>
         </Grid>
       </Container>
     </>

@@ -8,6 +8,8 @@ import { BackButton } from "../components/BackButton/BackButton";
 import ProfileLinks from "../components/ProfileLinks";
 import { Loading } from "../components/Loading";
 import { API } from "../utils/API";
+import React from "react";
+
 
 export default function Profile() {
   const [loading, setLoading] = useState(true);
@@ -26,7 +28,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <React.Fragment style={{backgroundImage: '/images/crossword.png'}}>
       <BackButton />
       {loading ? (
         <Loading />
@@ -43,6 +45,6 @@ export default function Profile() {
           )}
         </>
       )}
-    </>
+    </React.Fragment>
   );
 }

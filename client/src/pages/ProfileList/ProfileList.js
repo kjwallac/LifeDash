@@ -2,7 +2,6 @@ import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
 import { CssBaseline, List, ListItem } from "@material-ui/core";
-import { BackButton } from "../../components/BackButton/BackButton";
 import { Remove } from "@material-ui/icons";
 import { Link, useParams } from "react-router-dom";
 
@@ -40,7 +39,6 @@ export const ProfileList = () => {
               justifyContent: "center",
             }}
           >
-            <BackButton />
             <h2
               style={{
                 margin: "0 auto",
