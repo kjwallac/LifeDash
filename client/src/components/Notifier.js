@@ -1,7 +1,7 @@
-import React from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import React from "react";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import { setNotifier } from "../utils/apiHelper";
 
 export default function Notifier() {
@@ -9,7 +9,7 @@ export default function Notifier() {
   setNotifier(setMessage);
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setMessage("");
@@ -19,8 +19,8 @@ export default function Notifier() {
     <div>
       <Snackbar
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
+          vertical: "bottom",
+          horizontal: "left",
         }}
         open={Boolean(message)}
         autoHideDuration={6000}
@@ -28,7 +28,12 @@ export default function Notifier() {
         message={message}
         action={
           <React.Fragment>
-            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="inherit"
+              onClick={handleClose}
+            >
               <CloseIcon fontSize="small" />
             </IconButton>
           </React.Fragment>
@@ -37,3 +42,4 @@ export default function Notifier() {
     </div>
   );
 }
+
