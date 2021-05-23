@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, useRef } from "react";
 import { API } from "../../utils/API";
 import { BackButton } from "../BackButton/BackButton";
 import { Loading } from "../Loading";
@@ -61,6 +61,7 @@ const statusList = [
 
 export const EditMode = () => {
   const classes = useStyles();
+  const imagesRef = useRef();
 
   const { id } = useParams();
   const [data, setData] = useState(null);
@@ -87,26 +88,26 @@ export const EditMode = () => {
 
   // Fetches data and sets update's default values
   const fetchData = async () => {
-    const res = await API.getProfile(id);
-    setData(res.data);
+    const { data: profileData } = await API.getProfile(id);
+    setData(profileData);
     setUpdate({
-      firstName: res.data.firstName,
-      lastName: res.data.lastName,
-      bornDate: res.data.bornDate,
-      deathDate: res.data.deathDate,
-      quote: res.data.quote,
-      bio: res.data.bio,
-      profileImage: res.data.profileImage,
-      images: res.data.images,
-      socialLinks: res.data.socialLinks,
-      status: res.data.status,
+      firstName: profileData.firstName,
+      lastName: profileData.lastName,
+      bornDate: profileData.bornDate,
+      deathDate: profileData.deathDate,
+      quote: profileData.quote,
+      bio: profileData.bio,
+      profileImage: profileData.profileImage,
+      images: profileData.images,
+      socialLinks: profileData.socialLinks,
+      status: profileData.status,
     });
     setLoading(false);
   };
 
   // When submitting the form
   const submit = () => {
-    console.log(update);
+    console.log();
   };
 
   // For onChange to change update
@@ -114,9 +115,12 @@ export const EditMode = () => {
     return (e) => setUpdate({ ...update, [change]: e.target.value });
   };
 
-  function removeImage() {
-    console.log("clicked");
-  }
+  // Filters images and updates state
+  const removeImage = (image) => {
+    const array = [...update.images];
+    const filteredArray = array.filter((obj) => obj !== image);
+    setUpdate({ ...update, images: filteredArray });
+  };
 
   return (
     <>
@@ -240,15 +244,15 @@ export const EditMode = () => {
                     Images
                   </ListSubheader>
                 </GridListTile>
-                {data.images.map((image) => (
+                {update.images.map((image) => (
                   <GridListTile key={image}>
-                    <img src={image} alt="notables" />
+                    <img src={image} alt="notables" ref={imagesRef} />
                     <GridListTileBar
                       actionIcon={
                         <IconButton
-                          aria-label="Remove Image"
+                          aria-label="del"
                           className={classes.icon}
-                          onClick={removeImage}
+                          onClick={() => removeImage(image)}
                         >
                           <DeleteIcon />
                         </IconButton>
