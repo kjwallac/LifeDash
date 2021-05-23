@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { API } from "../../utils/API";
 import { BackButton } from "../BackButton/BackButton";
 import { Loading } from "../Loading";
+import { useHistory } from "react-router-dom";
 import { Remove as Dash, HighlightOff as DeleteIcon } from "@material-ui/icons";
 import {
   Avatar,
@@ -62,9 +63,11 @@ const statusList = [
 ];
 
 export const EditMode = () => {
+  const history = useHistory();
   const classes = useStyles();
   const imageRef = useRef();
   const socialRef = useRef();
+  const profileImageRef = useRef();
 
   const { id } = useParams();
   const [data, setData] = useState(null);
@@ -109,8 +112,15 @@ export const EditMode = () => {
   };
 
   // When submitting the form
-  const submit = () => {
-    console.log();
+  const submit = async () => {
+    // Add submit here
+    const res = await API.updateProfile(id, update);
+    console.log(res);
+    if (res.statusText === "OK") {
+      history.push(`/profile/${id}`);
+    } else {
+      alert("something went wrong");
+    }
   };
 
   // For onChange to change update
@@ -191,12 +201,23 @@ export const EditMode = () => {
               </InputLabel>
               <TextField
                 required
-                defaultValue={data.profileImage}
+                defaultValue={update.profileImage}
                 fullWidth
                 helperText="Edit image link for profile picture"
                 id="image-link"
-                onChange={handleChange("profileImage")}
+                inputRef={profileImageRef}
               />
+              <Button
+                onClick={() => {
+                  setUpdate({
+                    ...update,
+                    profileImage: profileImageRef.current.value,
+                  });
+                  profileImageRef.current.value = "";
+                }}
+              >
+                Add
+              </Button>
             </div>
           </Card>
 
@@ -240,6 +261,9 @@ export const EditMode = () => {
           {/* IMAGE LIST */}
           <Card className="edit-container">
             <div className={classes.gridRoot}>
+              {!update.images.length && (
+                <p style={{ color: "rgba(0, 0, 0, 0.5)" }}>No Images Listed!</p>
+              )}
               <GridList cellHeight={180} className={classes.gridList}>
                 <GridListTile
                   key="Subheader"
@@ -337,7 +361,9 @@ export const EditMode = () => {
                   </ListItem>
                 ))
               ) : (
-                <p>No Social Links Listed</p>
+                <p style={{ color: "rgba(0, 0, 0, 0.5)" }}>
+                  No Social Links Listed
+                </p>
               )}
             </List>
             <div className="edit-input-form">
