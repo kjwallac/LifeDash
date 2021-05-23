@@ -24,6 +24,12 @@
   background-color: rgb(226, 226, 226);
 }
 
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .edit-input-label {
   margin-top: 1rem;
@@ -60,4 +66,8 @@
   padding: 0.5rem;
 }
 
-
+.add-image {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}

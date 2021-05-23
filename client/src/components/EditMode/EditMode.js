@@ -17,6 +17,8 @@ import {
   GridListTileBar,
   ListSubheader,
   IconButton,
+  List,
+  ListItem,
 } from "@material-ui/core";
 import "./EditMode.css";
 
@@ -61,7 +63,8 @@ const statusList = [
 
 export const EditMode = () => {
   const classes = useStyles();
-  const imagesRef = useRef();
+  const imageRef = useRef();
+  const socialRef = useRef();
 
   const { id } = useParams();
   const [data, setData] = useState(null);
@@ -120,6 +123,12 @@ export const EditMode = () => {
     const array = [...update.images];
     const filteredArray = array.filter((obj) => obj !== image);
     setUpdate({ ...update, images: filteredArray });
+  };
+
+  const removeSocial = (sociallink) => {
+    const array = [...update.socialLinks];
+    const filteredArray = array.filter((obj) => obj !== sociallink);
+    setUpdate({ ...update, socialLinks: filteredArray });
   };
 
   return (
@@ -246,7 +255,7 @@ export const EditMode = () => {
                 </GridListTile>
                 {update.images.map((image) => (
                   <GridListTile key={image}>
-                    <img src={image} alt="notables" ref={imagesRef} />
+                    <img src={image} alt="notables" />
                     <GridListTileBar
                       actionIcon={
                         <IconButton
@@ -261,9 +270,25 @@ export const EditMode = () => {
                   </GridListTile>
                 ))}
               </GridList>
-              <Button variant="contained" style={{ marginTop: "1rem" }}>
-                Add
-              </Button>
+              <div className="edit-input-form add-image">
+                <TextField
+                  placeholder="Insert Image Link here"
+                  helperText="Add a link to add your favorite image"
+                  fullWidth
+                  inputRef={imageRef}
+                />
+                <Button
+                  onClick={() => {
+                    setUpdate({
+                      ...update,
+                      images: update.images.concat(imageRef.current.value),
+                    });
+                    imageRef.current.value = "";
+                  }}
+                >
+                  Add
+                </Button>
+              </div>
             </div>
           </Card>
 
@@ -282,14 +307,62 @@ export const EditMode = () => {
             </div>
           </Card>
 
+          {/* SOCIAL LINKS */}
           <div className="edit-container">
+            <List
+              style={{
+                border: "1px dotted lightgray",
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              {update.socialLinks.length ? (
+                update.socialLinks.map((links) => (
+                  <ListItem
+                    key={links}
+                    style={{
+                      wordBreak: "break-word",
+                      paddingTop: 0,
+                      paddingBottom: 0,
+                    }}
+                  >
+                    <IconButton
+                      aria-label="del"
+                      className={classes.icon}
+                      onClick={() => removeSocial(links)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                    {links}
+                  </ListItem>
+                ))
+              ) : (
+                <p>No Social Links Listed</p>
+              )}
+            </List>
             <div className="edit-input-form">
               <InputLabel>Social Links</InputLabel>
-              <TextField
-                defaultValue={data.socialLinks}
-                helperText="Social Media Links"
-                fullWidth
-              />
+              <div className="center">
+                <TextField
+                  placeholder="Enter a new social link here"
+                  helperText="Social Media Links"
+                  fullWidth
+                  inputRef={socialRef}
+                />
+                <Button
+                  onClick={() => {
+                    setUpdate({
+                      ...update,
+                      socialLinks: update.socialLinks.concat(
+                        socialRef.current.value
+                      ),
+                    });
+                    socialRef.current.value = "";
+                  }}
+                >
+                  Add
+                </Button>
+              </div>
             </div>
           </div>
 
