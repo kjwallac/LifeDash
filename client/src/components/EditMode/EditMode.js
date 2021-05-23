@@ -113,9 +113,7 @@ export const EditMode = () => {
 
   // When submitting the form
   const submit = async () => {
-    // Add submit here
     const res = await API.updateProfile(id, update);
-    console.log(res);
     if (res.statusText === "OK") {
       history.push(`/profile/${id}`);
     } else {
