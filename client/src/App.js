@@ -15,21 +15,23 @@ import EditMode from "./components/EditMode/EditMode";
 
 function App() {
   return (
-    <Router>
-      <Bar />
-      <Notifier />
-      <Switch>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/account/:id" component={Account} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/profile/view/:id" component={ProfileList} />
-        <Route exact path="/profile/create" component={CreateProfile} />
-        <Route exact path="/profile/:profileId" component={Profile} />
-        <Route exact path="/profile/edit/:id" component={EditMode} />
-        <Route path="/" component={ErrorPage} />
-      </Switch>
-    </Router>
+    <div style={{ backgroundImage: "url(/images/gplaypattern.png)" }}>
+      <Router>
+        <Bar />
+        <Notifier />
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/account/:id" component={Account} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/profile/view/:id" component={ProfileList} />
+          <Route exact path="/profile/create" component={CreateProfile} />
+          <Route exact path="/profile/:profileId" component={Profile} />
+          <Route exact path="/profile/edit/:id" component={EditMode} />
+          <Route path="/" component={ErrorPage} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

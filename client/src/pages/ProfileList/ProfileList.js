@@ -1,7 +1,6 @@
 import { useEffect, useState, Fragment } from "react";
 import { API } from "../../utils/API";
 import { Loading } from "../../components/Loading";
-import { BackButton } from "../../components/BackButton/BackButton";
 import { Remove as Dash } from "@material-ui/icons";
 import { Link, useParams } from "react-router-dom";
 import { Edit } from "../../components/Edit";
@@ -38,14 +37,13 @@ export const ProfileList = () => {
   };
 
   return (
-    <Fragment>
+    <div style={{ height: "91vh" }}>
       {loading ? (
         <Loading />
       ) : (
         <Fragment>
           <CssBaseline />
           <div style={headerContainer}>
-            <BackButton />
             <h2 style={profileCurated}>Profiles Curated: {data.length}</h2>
           </div>
           <List style={ulStyle}>
@@ -88,7 +86,7 @@ export const ProfileList = () => {
           </List>
         </Fragment>
       )}
-    </Fragment>
+    </div>
   );
 };
 
@@ -100,9 +98,9 @@ const {
   nameStyle,
   m0,
   dashStyle,
+  ulStyle,
   headerContainer,
   profileCurated,
-  ulStyle,
 } = {
   headerContainer: {
     display: "flex",
@@ -121,8 +119,6 @@ const {
   ulStyle: {
     margin: "1rem",
     padding: "0 0.5rem",
-    // display: "flex",
-    // flexDirection: "column",
   },
   listitem: {
     marginBottom: "1rem",
