@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Life-Dash - Virtual Memorial 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/38770396/119217496-71f67900-ba8f-11eb-89b2-0202e1841486.png)
 
-## Available Scripts
+## Table of Contents
+- [Life-Dash - Virtual Memorial](#life-dash---virtual-memorial)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Technologies](#technologies)
+  - [New Tech](#new-tech)
+  - [Future Enhancements](#future-enhancements)
+  - [Contributors](#contributors)
+  - [Screenshots](#screenshots)
 
-In the project directory, you can run:
+## Description
+When visiting a memorial site, information of a departed is limited to the space on a grave or memorial plaque. 
+Life-Dash allows users to glimpse into the life which the hyphen between dates represents. With QR technology, users are
+able to view read a detailed biography, as well as view pictures and share memories or thoughts. 
 
-### `npm start`
+Users can securely login into the application through google, or by creating an account. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Once in the app, users can:
+- View profiles of loved ones created.
+- Create, edit, and delete profiles.
+- View QR code associated with the profiles.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
+This application leverages the following technologies:
 
-### `npm run build`
+| Front-end          | Back-end         | Dev Tools      |
+|--------------------|------------------|----------------|
+| Material-UI        | GoogleAuth0      | Trello         |
+| React              | Express          | dotenv         |
+| Font Awesome       | Heroku           |                |
+| HTML/CSS           | Passport         |                |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## New Tech
+- QR Code  [qrcode.react](https://www.npmjs.com/package/qrcode.react)
+- Google Authentication [GoogleAuthO](https://console.cloud.google.com/apis/library/plus.googleapis.com?id=98f0e0cd-7dc7-469a-baac-d5ed9a99e403&project=life-dash-312703)
+- Login Authentication [Passport](http://www.passportjs.org/packages/passport-google/)
+- Image Carousel [Swiper](https://openbase.com/js/swiper)
+- Styles [Material UI ](https://material-ui.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Future Enhancements
+- TBD
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributors
+This was a joint project between the following developers:
+- [Jonathan Soukaseume](https://github.com/sksmejn)
+- [Kristina Wallace](https://github.com/kjwallac)
+- [Ernie Perez](https://github.com/jep1220)
+- [An Trinh](https://github.com/Eibonmon)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Screenshots
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Life - Dash (3)](https://user-images.githubusercontent.com/38770396/119218664-678bad80-ba96-11eb-9a81-865a520a675a.gif)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img width="286" alt="LD login" src="https://user-images.githubusercontent.com/38770396/119218467-4c6c6e00-ba95-11eb-9094-4529902a97c7.PNG">
 
-### Making a Progressive Web App
+<img width="282" alt="LD login google" src="https://user-images.githubusercontent.com/38770396/119218515-8e95af80-ba95-11eb-97c4-92db0e5bc38d.PNG">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img width="282" alt="LD home pg" src="https://user-images.githubusercontent.com/38770396/119218520-935a6380-ba95-11eb-8393-f2d98424cf63.PNG">
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

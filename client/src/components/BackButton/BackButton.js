@@ -1,15 +1,8 @@
-import { Button, makeStyles } from "@material-ui/core";
-import { ArrowBackIos } from "@material-ui/icons";
+import { Button } from "@material-ui/core";
+import { ArrowBackIos as ArrowBackIosIcon } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
-
-export const BackButton = ({ style }) => {
-  const classes = useStyles();
+export const BackButton = () => {
   const history = useHistory();
 
   const goBack = () => {
@@ -19,14 +12,14 @@ export const BackButton = ({ style }) => {
   return (
     <div>
       <Button
-        style={style}
+        style={{ color: "white" }}
         onClick={goBack}
-        variant="contained"
+        // variant="contained"
         color="primary"
-        className={classes.button}
-        startIcon={<ArrowBackIos />}
+        // className={classes.button}
+        startIcon={<ArrowBackIosIcon />}
       >
-        Back
+        {/* Back */}
       </Button>
     </div>
   );

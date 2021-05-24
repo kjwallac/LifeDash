@@ -25,8 +25,15 @@ export const API = {
   createProfile: () => {
     return axios.post("/api/profile/create", { withCredentials: true });
   },
-  updateProfile: (id) => {
-    return axios.put(`/api/profile/update/${id}`, { withCredentials: true });
+  updateProfile: (id, body) => {
+    return axios(
+      {
+        method: "put",
+        url: `/api/profile/update/${id}`,
+        data: body,
+      },
+      { withCredentials: true }
+    );
   },
   removeProfile: (id) => {
     return axios.delete(`/api/profile/remove/${id}`, { withCredentials: true });
