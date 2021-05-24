@@ -19,6 +19,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const useStyles = makeStyles((theme) => ({
+  large: {
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+  },
+}));
+
 export const ProfileList = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
