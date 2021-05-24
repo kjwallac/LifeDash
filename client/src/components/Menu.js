@@ -29,7 +29,7 @@ export default function SimpleMenu() {
   const links = (location) => {
     switch (location) {
       case "profiles":
-        history.push(`/profile/view/${user}`);
+        history.push(`/profiles/view/${user}`);
         break;
       case "account":
         history.push(`/account/${user}`);
