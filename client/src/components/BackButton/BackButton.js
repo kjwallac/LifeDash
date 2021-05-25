@@ -10,6 +10,7 @@ export const BackButton = () => {
 
   useEffect(() => {
     fetchUser();
+    // eslint-disable-next-line
   }, []);
 
   const fetchUser = async () => {

@@ -27,6 +27,7 @@ export const ProfileList = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   const fetchData = async () => {
@@ -36,8 +37,7 @@ export const ProfileList = () => {
   };
 
   return (
-    <div 
-    >
+    <div>
       {loading ? (
         <Loading />
       ) : (
@@ -79,7 +79,16 @@ export const ProfileList = () => {
                       </h4>
                     </div>
                   </Link>
-                  <Edit id={_id} name={<span>{firstName}<br />{lastName}</span>}/>
+                  <Edit
+                    id={_id}
+                    name={
+                      <span>
+                        {firstName}
+                        <br />
+                        {lastName}
+                      </span>
+                    }
+                  />
                 </ListItem>
               )
             )}
@@ -117,8 +126,10 @@ const {
     padding: "1rem",
   },
   ulStyle: {
-    margin: "1rem",
+    margin: "1rem auto",
     padding: "0 0.5rem",
+    maxWidth: "800px",
+    textAlign: "center",
   },
   listitem: {
     marginBottom: "1rem",

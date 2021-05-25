@@ -11,6 +11,7 @@ export default function SimpleMenu() {
 
   useEffect(() => {
     fetchUser();
+    // eslint-disable-next-line
   }, []);
 
   const fetchUser = async () => {
