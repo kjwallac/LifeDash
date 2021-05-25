@@ -60,7 +60,7 @@ export default function Login() {
     } else {
       const res = await axios.post(
         "http://localhost:5000/api/user/login" ||
-          "https://lifedash-memroial.herokuapp.com/api/user/login",
+          "https://lifedash-memorial.herokuapp.com/api/user/login",
         {
           email: data.email,
           password: data.password,
