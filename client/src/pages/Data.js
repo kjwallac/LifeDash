@@ -9,7 +9,7 @@ const Data = () => {
       <h1>QR Code</h1>
       <br />
       <QRCode
-        value={`http://localhost:3000/profile/${profileId}`}
+        value={`${window.location.href}/${profileId}`}
         size={128}
         bgColor={"#ffffff"}
         fgColor={"#000000"}

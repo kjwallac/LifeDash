@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Paper, Typography } from "@material-ui/core";
-import Link from "@material-ui/core/link";
+import { Grid, Paper, Typography, Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +25,18 @@ export default function ProfileBody({ profile }) {
         <Grid container spacing={2}>
           <Grid item sm container>
             <Typography variant="body2" className={classes.profData}>
-              <Link>{profile.socialLinks}</Link>
+              <Link
+                href={profile.socialLinks}
+                color="inherit"
+                target="_blank"
+                style={{
+                  wordBreak: "break-word",
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                }}
+              >
+                {`${profile.socialLinks}`}
+              </Link>{" "}
             </Typography>
           </Grid>
         </Grid>

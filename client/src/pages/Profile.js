@@ -27,7 +27,7 @@ export default function Profile() {
   }
 
   return (
-    <div style={{ backgroundImage: "/images/crossword.png" }}>
+    <div>
       <BackButton />
       {loading ? (
         <Loading />
@@ -35,10 +35,10 @@ export default function Profile() {
         <>
           {profile && (
             <>
-              <ProfileHeader profile={profile} />
-              <SwiperPics profile={profile} />
-              <ProfileBody profile={profile} />
-              <ProfileLinks profile={profile} />
+              <ProfileHeader profile={profile} /><br/>
+              <SwiperPics profile={profile} /><br/>
+              <ProfileBody profile={profile} /><br/>
+              <ProfileLinks profile={profile} /><br/>
               <CommentBox profile={profile} />
             </>
           )}
