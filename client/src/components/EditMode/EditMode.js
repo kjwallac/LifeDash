@@ -340,7 +340,7 @@ export const EditMode = () => {
                 textAlign: "center",
               }}
             >
-              {update.socialLinks.length ? (
+              {update.socialLinks ? (
                 update.socialLinks.map((links) => (
                   <ListItem
                     key={links}
