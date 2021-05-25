@@ -89,7 +89,6 @@ app.get("/*", (req, res) => {
     url = url.substring(1);
   res.sendFile(url);
 });
-
 // Server start
 app.listen(PORT, (err) => {
   if (err) console.log(err.message);

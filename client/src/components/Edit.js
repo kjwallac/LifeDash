@@ -1,18 +1,19 @@
+import React, { useState } from "react";
 import { IconButton } from "@material-ui/core";
 import { Backspace } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQrcode, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { API } from "../utils/API";
+import QRDialog from "./QRDialog";
 
-export function Edit({ id }) {
+export function Edit({ id, name }) {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   const qrBtn = () => {
-    console.log("Clicked qr");
-    console.log(id);
+    setDialogOpen(true);
   };
 
   const editBtn = () => {
-    console.log("Clicked edit");
-    console.log(id);
     window.location.href = `/profile/edit/${id}`;
   };
 
@@ -25,6 +26,12 @@ export function Edit({ id }) {
 
   return (
     <div style={style}>
+      <QRDialog
+        profileId={id}
+        name={name}
+        dialogOpen={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+      />
       <IconButton
         aria-label="qrcode"
         color="primary"

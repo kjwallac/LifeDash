@@ -279,10 +279,10 @@ export default function Form() {
             onChange={genOnFieldChange("profileImage")}
           />
         </Grid>
-
+        <br />
         <div className={classes.margin}>
           <Grid>
-            <Grid item>
+            <Grid item xs={12}>
               <div>
                 {profile.images.map((url) => (
                   <React.Fragment key={url}>
@@ -295,18 +295,30 @@ export default function Form() {
                   </React.Fragment>
                 ))}
               </div>
-              <Button onClick={onAddImageClick}>
-                <AddPhotoAlternateRoundedIcon />
-              </Button>
+              <Grid item xs={12}>
+                <Button
+                  variant="outlined"
+                  style={{
+                    color: "#3CB685",
+                  }}
+                  size="medium"
+                  className={classes.button}
+                  startIcon={<AddPhotoAlternateRoundedIcon />}
+                  onClick={onAddImageClick}
+                >
+                  Add Another Image
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </div>
-
+        <br />
         <Grid item xs={12}>
           <Button
             variant="outlined"
             style={{
               color: "#3CB685",
+              marginBottom: 15,
             }}
             size="medium"
             className={classes.button}
