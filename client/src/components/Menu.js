@@ -39,8 +39,8 @@ export default function SimpleMenu() {
         history.push(`/account/${user}`);
         break;
       case "logout":
-        history.push("/");
         API.logout();
+        history.push("/");
         break;
       default:
         break;

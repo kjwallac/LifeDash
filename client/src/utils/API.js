@@ -41,7 +41,7 @@ export const API = {
 
   // LOGOUTS ACCOUNT //////////////////////////////////
   logout: () => {
-    return axios.get("/api/google/logout", { withCredentials: true });
+    return axios.get("/api/google/logout");
   },
 };
 
