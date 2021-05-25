@@ -21,7 +21,7 @@ export default function QRDialog({ profileId, name, dialogOpen, onClose }) {
   segments.pop();
   segments.pop();
   segments.pop();
-  segments.push("profiles");
+  segments.push("profile");
   segments.push(profileId);
   const qrCodeValue = segments.join("/");
 
