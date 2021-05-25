@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const compression = require("compression");
@@ -36,6 +37,8 @@ app.use(
   })
 );
 app.use(compression());
+app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "./client/build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -78,6 +81,14 @@ app.use((req, res, next) => {
 // Routes here
 app.use("/api", require("./controllers"));
 
+// Heroku catch all pages
+app.get("/*", (req, res) => {
+  let url = path.join(__dirname, "./client/build", "index.html");
+  if (!url.startsWith("/app/"))
+    // we're on local windows
+    url = url.substring(1);
+  res.sendFile(url);
+});
 // Server start
 app.listen(PORT, (err) => {
   if (err) console.log(err.message);
