@@ -8,7 +8,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
     res.redirect(
-      `https://lifedash-memorial.herokuapp.com/${req.user._id}` ||
+      `https://lifedash-memorial.herokuapp.com/account/${req.user._id}` ||
         `http://localhost:3000/account/${req.user._id}`
     );
   }
