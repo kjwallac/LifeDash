@@ -275,22 +275,24 @@ export const EditMode = () => {
                     Images
                   </ListSubheader>
                 </GridListTile>
-                {update.images.map((image) => (
-                  <GridListTile key={image}>
-                    <img src={image} alt="notables" />
-                    <GridListTileBar
-                      actionIcon={
-                        <IconButton
-                          aria-label="del"
-                          className={classes.icon}
-                          onClick={() => removeImage(image)}
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      }
-                    />
-                  </GridListTile>
-                ))}
+                {update.images &&
+                  update.images.map((image) => (
+                    <GridListTile key={image}>
+                      <img src={image} alt="notables" />
+                      <GridListTileBar
+                        actionIcon={
+                          <IconButton
+                            aria-label="del"
+                            className={classes.icon}
+                            onClick={() => removeImage(image)}
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        }
+                      />
+                    </GridListTile>
+                  ))}
+                {!update.images && <p>No images listed</p>}
               </GridList>
               <div className="edit-input-form add-image">
                 <TextField
