@@ -31,19 +31,23 @@ export default function SimpleMenu() {
   };
 
   const links = (location) => {
-    switch (location) {
-      case "profiles":
-        history.push(`/profiles/view/${user}`);
-        break;
-      case "account":
-        history.push(`/account/${user}`);
-        break;
-      case "logout":
-        API.logout();
-        history.push("/");
-        break;
-      default:
-        break;
+    if (!user) {
+      history.push("/");
+    } else {
+      switch (location) {
+        case "profiles":
+          history.push(`/profiles/view/${user}`);
+          break;
+        case "account":
+          history.push(`/account/${user}`);
+          break;
+        case "logout":
+          API.logout();
+          history.push("/");
+          break;
+        default:
+          break;
+      }
     }
     setAnchorEl(null);
   };

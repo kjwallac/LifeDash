@@ -22,15 +22,19 @@ export const BackButton = () => {
   };
 
   const goBack = () => {
-    const pathing = history.location.pathname;
-    if (pathing.includes(`/profiles/`)) {
-      history.push(`/account/${user}`);
-    } else if (pathing.includes(`/profile/edit`)) {
-      history.push(`/profiles/view/${user}`);
-    } else if (pathing.includes(`/profile/`)) {
-      history.push(`/account/${user}`);
+    if (!user) {
+      history.push("/");
     } else {
-      return;
+      const pathing = history.location.pathname;
+      if (pathing.includes(`/profiles/`)) {
+        history.push(`/account/${user}`);
+      } else if (pathing.includes(`/profile/edit`)) {
+        history.push(`/profiles/view/${user}`);
+      } else if (pathing.includes(`/profile/`)) {
+        history.push(`/account/${user}`);
+      } else {
+        return;
+      }
     }
   };
 
