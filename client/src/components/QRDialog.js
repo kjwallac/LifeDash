@@ -15,14 +15,15 @@ export default function QRDialog({ profileId, name, dialogOpen, onClose }) {
   const handleClose = () => {
     onClose();
     setOpen(false);
-
   };
 
-  const segments = window.location.href.split('/');
+  const segments = window.location.href.split("/");
   segments.pop();
   segments.pop();
+  segments.pop();
+  segments.push("profiles");
   segments.push(profileId);
-  const qrCodeValue = segments.join('/');
+  const qrCodeValue = segments.join("/");
 
   return (
     <Dialog
@@ -30,9 +31,13 @@ export default function QRDialog({ profileId, name, dialogOpen, onClose }) {
       onClose={handleClose}
       aria-labelledby="form-dialog-title"
     >
-      <DialogTitle style={{textAlign:"center"}} id="form-dialog-title">{name}</DialogTitle>
-      <DialogContent style={{textAlign:"center"}} >
-      <DialogContentText style={{textAlign:"center"}}>Scan to view profile</DialogContentText>
+      <DialogTitle style={{ textAlign: "center" }} id="form-dialog-title">
+        {name}
+      </DialogTitle>
+      <DialogContent style={{ textAlign: "center" }}>
+        <DialogContentText style={{ textAlign: "center" }}>
+          Scan to view profile
+        </DialogContentText>
 
         <QRCode
           value={qrCodeValue}
