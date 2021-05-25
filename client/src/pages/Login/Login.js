@@ -59,8 +59,8 @@ export default function Login() {
       alert("Please check all fields!");
     } else {
       const res = await axios.post(
-        "https://lifedash-memroial.herokuapp.com/api/user/login" ||
-          "http://localhost:5000/api/user/login",
+        "http://localhost:5000/api/user/login" ||
+          "https://lifedash-memroial.herokuapp.com/api/user/login",
         {
           email: data.email,
           password: data.password,
@@ -127,8 +127,8 @@ export default function Login() {
           </Button>
           <a
             href={
-              "https://lifedash-memorial.herokuapp.com/api/google" ||
-              "http://localhost:5000/api/google"
+              "http://localhost:5000/api/google" ||
+              "https://lifedash-memorial.herokuapp.com/api/google"
             }
             style={{ textDecoration: "none" }}
           >
