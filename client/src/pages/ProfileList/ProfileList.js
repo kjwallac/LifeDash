@@ -27,7 +27,6 @@ export const ProfileList = () => {
 
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchData = async () => {
@@ -37,7 +36,8 @@ export const ProfileList = () => {
   };
 
   return (
-    <div style={{ height: "91vh" }}>
+    <div 
+    >
       {loading ? (
         <Loading />
       ) : (
@@ -79,7 +79,7 @@ export const ProfileList = () => {
                       </h4>
                     </div>
                   </Link>
-                  <Edit id={_id} />
+                  <Edit id={_id} name={<span>{firstName}<br />{lastName}</span>}/>
                 </ListItem>
               )
             )}
