@@ -7,14 +7,18 @@ router.get(
   "/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-    res.redirect(`http://localhost:3000/account/${req.user._id}`);
+    res.redirect(
+      `https://lifedash-memorial.herokuapp.com/${req.user._id}` ||
+        `http://localhost:3000/account/${req.user._id}`
+    );
   }
 );
 
 router.get("/logout", (req, res) => {
-  req.session.destroy;
-  req.logout();
-  res.redirect("/");
+  req.session.destory(() => {
+    req.logout();
+    res.redirect("/");
+  });
 });
 
 module.exports = router;

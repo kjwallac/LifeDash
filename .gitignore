@@ -35,7 +35,7 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+# build/Release
 
 # Dependency directories
 node_modules/
@@ -45,7 +45,7 @@ jspm_packages/
 web_modules/
 
 # TypeScript cache
-*.tsbuildinfo
+# *.tsbuildinfo
 
 # Optional npm cache directory
 .npm
@@ -78,11 +78,11 @@ web_modules/
 
 # Next.js build output
 .next
-out
+# out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
 
 # Gatsby files
 .cache/
@@ -119,5 +119,3 @@ config/config.env
 config.env
 .env
 config.env.example
-
-.DS_Store

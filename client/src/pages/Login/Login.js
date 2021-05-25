@@ -58,10 +58,14 @@ export default function Login() {
     if (!email || !password) {
       alert("Please check all fields!");
     } else {
-      const res = await axios.post("http://localhost:5000/api/user/login", {
-        email: data.email,
-        password: data.password,
-      });
+      const res = await axios.post(
+        "https://lifedash-memroial.herokuapp.com/api/user/login" ||
+          "http://localhost:5000/api/user/login",
+        {
+          email: data.email,
+          password: data.password,
+        }
+      );
       if (res.statusText === "OK") {
         window.location.href = `/account/${res.data._id}`;
       } else {
@@ -122,7 +126,10 @@ export default function Login() {
             Sign In
           </Button>
           <a
-            href="http://localhost:5000/api/google"
+            href={
+              "https://lifedash-memorial.herokuapp.com/api/google" ||
+              "http://localhost:5000/api/google"
+            }
             style={{ textDecoration: "none" }}
           >
             <Button
