@@ -14,7 +14,11 @@ export const BackButton = () => {
 
   const fetchUser = async () => {
     const res = await API.getAllUsers();
-    setUser(res.data.passport.user);
+    if (!res.data.passport) {
+      return;
+    } else {
+      setUser(res.data.passport.user);
+    }
   };
 
   const goBack = () => {
