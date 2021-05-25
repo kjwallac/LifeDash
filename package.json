@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=production node server",
-    "dev": "cross-env NODE_ENV=development nodemon server & cd ../client && npm start",
+    "start": "NODE_ENV=production node server",
+    "dev": "cross-env NODE_ENV=development nodemon server & cd client && npm start",
     "postinstall": "node ./scripts/post-install.js",
     "server": "npm start"
   },
