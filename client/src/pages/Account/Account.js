@@ -98,7 +98,7 @@ export default function Account() {
                 </Grid>
                 <Grid item xs={12} md={4} lg={3}>
                   <Paper className={fixedHeightPaper}>
-                    <Link to={`/profile/view/${id}`} className="acc-options">
+                    <Link to={`/profiles/view/${id}`} className="acc-options">
                       View Profiles
                     </Link>
                     <Link to="/profile/create" className="acc-options">

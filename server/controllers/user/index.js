@@ -6,6 +6,7 @@ const {
   remove,
   create,
   login,
+  getSess,
 } = require("./userControls");
 const { ensureAuth, ensureGuest } = require("../../middleware/auth");
 

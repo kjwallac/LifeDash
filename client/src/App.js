@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/account/:id" component={Account} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/profile/view/:id" component={ProfileList} />
+          <Route exact path="/profiles/view/:id" component={ProfileList} />
           <Route exact path="/profile/create" component={CreateProfile} />
           <Route exact path="/profile/:profileId" component={Profile} />
           <Route exact path="/profile/edit/:id" component={EditMode} />
