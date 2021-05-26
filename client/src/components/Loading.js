@@ -14,6 +14,7 @@ const style = {
   marginTop: "10rem",
   fontSize: "1.5rem",
   textAlign: "center",
+  height: "100vh",
 };
 
 export default Loading;

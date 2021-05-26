@@ -17,6 +17,7 @@ body {
 .swiper-container {
   width: 95%;
   height: auto !important;
+  max-width: 500px;
 
 }
 

@@ -10,6 +10,7 @@ import {
   ListItem,
   Avatar,
   makeStyles,
+  Container,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +38,7 @@ export const ProfileList = () => {
   };
 
   return (
-    <div>
+    <Container maxWidth="md" style={{ height: "93vh" }}>
       {loading ? (
         <Loading />
       ) : (
@@ -95,7 +96,7 @@ export const ProfileList = () => {
           </List>
         </Fragment>
       )}
-    </div>
+    </Container>
   );
 };
 

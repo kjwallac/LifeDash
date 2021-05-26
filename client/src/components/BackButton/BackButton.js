@@ -31,8 +31,10 @@ export const BackButton = () => {
         history.push(`/account/${user}`);
       } else if (pathing.includes(`/profile/edit`)) {
         history.push(`/profiles/view/${user}`);
-      } else if (pathing.includes(`/profile/`)) {
+      } else if (pathing.includes(`/profile/create`)) {
         history.push(`/account/${user}`);
+      } else if (pathing.includes(`/profile`)) {
+        history.push(`/profiles/view/${user}`);
       } else {
         return;
       }
