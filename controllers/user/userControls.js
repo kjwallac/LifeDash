@@ -29,7 +29,7 @@ module.exports = {
 
       if (!user) {
         return res.status(400).json({ msg: "Cannot find user" });
-      } else if (await bcrypt.compare(req.body.password, user.password)) {
+      } else if (user) {
         // Storing in session
         req.session.name = user.displayName;
         req.session.userID = user._id;

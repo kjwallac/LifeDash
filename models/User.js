@@ -40,14 +40,14 @@ const UserSchema = new Schema(
   { timestamps: true }
 );
 
-UserSchema.pre("save", async function (next) {
-  try {
-    const hashedPassword = await bcrypt.hash(this.password, 10);
-    this.password = hashedPassword;
-    next();
-  } catch (err) {
-    next(err);
-  }
-});
+// UserSchema.pre("save", async function (next) {
+//   try {
+//     const hashedPassword = await bcrypt.hash(this.password, 10);
+//     this.password = hashedPassword;
+//     next();
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 module.exports = model("User", UserSchema);
