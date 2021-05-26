@@ -47,6 +47,24 @@ export default function Login() {
     password,
   };
 
+  const hostLogin = (logintype) => {
+    const LOCAL_DOMAIN = ["localhost", "127.0.0.1"];
+    const host = window.location.hostname;
+    if (logintype === "passport") {
+      if (LOCAL_DOMAIN.includes(host)) {
+        return "http://localhost:5000/api/user/login";
+      } else {
+        return "https://lifedash-memorial.herokuapp.com/api/user/login";
+      }
+    } else {
+      if (LOCAL_DOMAIN.includes(host)) {
+        return "http://localhost:5000/api/google";
+      } else {
+        return "https://lifedash-memorial.herokuapp.com/api/google";
+      }
+    }
+  };
+
   /**
    * @function onSubmitBtn
    * Submits info to db to compare against and login if in db
@@ -58,14 +76,10 @@ export default function Login() {
     if (!email || !password) {
       alert("Please check all fields!");
     } else {
-      const res = await axios.post(
-        "https://lifedash-memorial.herokuapp.com/api/user/login" ||
-          "http://localhost:5000/api/user/login",
-        {
-          email: data.email,
-          password: data.password,
-        }
-      );
+      const res = await axios.post(hostLogin("passport"), {
+        email: data.email,
+        password: data.password,
+      });
       if (res.statusText === "OK") {
         window.location.href = `/account/${res.data._id}`;
       } else {
@@ -125,13 +139,7 @@ export default function Login() {
           >
             Sign In
           </Button>
-          <a
-            href={
-              "https://lifedash-memorial.herokuapp.com/api/google" ||
-              "http://localhost:5000/api/google"
-            }
-            style={{ textDecoration: "none" }}
-          >
+          <a href={hostLogin("google")} style={{ textDecoration: "none" }}>
             <Button
               type="button"
               fullWidth

@@ -25,7 +25,6 @@ connectDB();
 // Logger
 if (process.env.NODE_ENV === "development") {
   app.use(logger("dev"));
-  dotenv.config({ path: "./config/config.env" });
 }
 
 // Middleware
