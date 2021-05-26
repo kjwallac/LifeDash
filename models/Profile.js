@@ -54,7 +54,6 @@ const ProfileSchema = new Schema(
     },
     qrCode: {
       type: String,
-      required: true,
     },
     createdAt: {
       type: Date,
