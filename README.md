@@ -61,13 +61,11 @@ This was a joint project between the following developers:
 ## Screenshots
 
 
-![Life - Dash (3)](https://user-images.githubusercontent.com/38770396/119218664-678bad80-ba96-11eb-9a81-865a520a675a.gif)
+![Life - Dash (5)](https://user-images.githubusercontent.com/38770396/119749414-eb091e00-be4b-11eb-8f06-688f4e5ec2f5.gif)
 
+![image](https://user-images.githubusercontent.com/38770396/119749049-1c351e80-be4b-11eb-87b1-b580540b662a.png)
 
-<img width="286" alt="LD login" src="https://user-images.githubusercontent.com/38770396/119218467-4c6c6e00-ba95-11eb-9094-4529902a97c7.PNG">
+![image](https://user-images.githubusercontent.com/38770396/119749116-471f7280-be4b-11eb-9d4b-ede0a36b6adc.png)
 
-<img width="282" alt="LD login google" src="https://user-images.githubusercontent.com/38770396/119218515-8e95af80-ba95-11eb-97c4-92db0e5bc38d.PNG">
-
-<img width="282" alt="LD home pg" src="https://user-images.githubusercontent.com/38770396/119218520-935a6380-ba95-11eb-8393-f2d98424cf63.PNG">
 
 
