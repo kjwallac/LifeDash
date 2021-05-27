@@ -3,7 +3,6 @@ import ProfileHeader from "../components/ProfileHeader";
 import SwiperPics from "../components/Swiper/Swiper";
 import ProfileBody from "../components/ProfileBody";
 import { useParams } from "react-router-dom";
-import CommentBox from "../components/commentsbox/CommentBox";
 import { BackButton } from "../components/BackButton/BackButton";
 import ProfileLinks from "../components/ProfileLinks";
 import { Loading } from "../components/Loading";
@@ -35,11 +34,14 @@ export default function Profile() {
         <>
           {profile && (
             <>
-              <ProfileHeader profile={profile} /><br/>
-              <SwiperPics profile={profile} /><br/>
-              <ProfileBody profile={profile} /><br/>
-              <ProfileLinks profile={profile} /><br/>
-              <CommentBox profile={profile} />
+              <ProfileHeader profile={profile} />
+              <br />
+              <SwiperPics profile={profile} />
+              <br />
+              <ProfileBody profile={profile} />
+              <br />
+              <ProfileLinks profile={profile} />
+              <br />
             </>
           )}
         </>

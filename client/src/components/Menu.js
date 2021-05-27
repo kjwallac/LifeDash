@@ -47,7 +47,7 @@ export default function SimpleMenu() {
           history.push("/");
           break;
         default:
-          break;
+          history.push("/home");
       }
     }
     setAnchorEl(null);
@@ -71,6 +71,7 @@ export default function SimpleMenu() {
       >
         <MenuItem onClick={() => links("profiles")}>Profiles</MenuItem>
         <MenuItem onClick={() => links("account")}>My account</MenuItem>
+        <MenuItem onClick={() => links("home")}>Home</MenuItem>
         <MenuItem onClick={() => links("logout")}>Logout</MenuItem>
       </Menu>
     </div>

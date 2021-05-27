@@ -36,7 +36,7 @@ export const BackButton = () => {
       } else if (pathing.includes(`/profile`)) {
         history.push(`/profiles/view/${user}`);
       } else {
-        return;
+        history.push("/home");
       }
     }
   };

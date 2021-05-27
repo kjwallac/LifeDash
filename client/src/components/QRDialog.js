@@ -17,13 +17,13 @@ export default function QRDialog({ profileId, name, dialogOpen, onClose }) {
     setOpen(false);
   };
 
-  const segments = window.location.href.split("/");
-  segments.pop();
-  segments.pop();
-  segments.pop();
-  segments.push("profile");
-  segments.push(profileId);
-  const qrCodeValue = segments.join("/");
+  // const segments = window.location.href.split("/");
+  // segments.pop();
+  // segments.pop();
+  // segments.pop();
+  // segments.push("profile");
+  // segments.push(profileId);
+  // const qrCodeValue = segments.join("/");
 
   return (
     <Dialog
@@ -40,7 +40,8 @@ export default function QRDialog({ profileId, name, dialogOpen, onClose }) {
         </DialogContentText>
 
         <QRCode
-          value={qrCodeValue}
+          // value={qrCodeValue}
+          value={`https://lifedash-memorial.herokuapp.com/profile/${profileId}`}
           size={128}
           bgColor={"#ffffff"}
           fgColor={"#000000"}
