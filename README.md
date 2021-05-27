@@ -1,6 +1,7 @@
 # Life-Dash - Virtual Memorial 
 
-![image](https://user-images.githubusercontent.com/38770396/119217496-71f67900-ba8f-11eb-89b2-0202e1841486.png)
+![image](https://user-images.githubusercontent.com/38770396/119749735-9ade8b80-be4c-11eb-90fb-40426adf74d3.png)
+
 
 ## Table of Contents
 * [Description](#description)
