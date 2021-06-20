@@ -16,6 +16,7 @@ import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import ComputerIcon from "@material-ui/icons/Computer";
 import IconButton from "@material-ui/core/IconButton";
 
@@ -41,6 +42,8 @@ export default function Form() {
 
   const [profileId, setProfileId] = useState("");
   const [imageCaptureDialogOpen, setImageCaptureDialogOpen] = useState(false);
+  const [profileImageCaptureDialogOpen, setProfileImageCaptureDialogOpen] =
+    useState(false);
 
   function genOnFieldChange(fieldName) {
     return (event) => {
@@ -54,10 +57,24 @@ export default function Form() {
     setImageCaptureDialogOpen(true);
   }
 
+  function onAddProfileImageClick() {
+    setProfileImageCaptureDialogOpen(true);
+  }
+
   function onImageUrlCapture(url) {
     setImageCaptureDialogOpen(false);
     if (url) {
       profile.images.push(url);
+      setProfile({
+        ...profile,
+      });
+    }
+  }
+
+  function onProfileImageUrlCapture(url) {
+    setProfileImageCaptureDialogOpen(false);
+    if (url) {
+      profile.profileImage = url;
       setProfile({
         ...profile,
       });
@@ -91,6 +108,12 @@ export default function Form() {
       <AddImageDialog
         onUrlCapture={onImageUrlCapture}
         dialogOpen={imageCaptureDialogOpen}
+        title="Additional Images"
+      />
+      <AddImageDialog
+        onUrlCapture={onProfileImageUrlCapture}
+        dialogOpen={profileImageCaptureDialogOpen}
+        title="Profile Image"
       />
       <Container maxWidth="sm">
         <Grid item xs={12}>
@@ -260,7 +283,7 @@ export default function Form() {
         </Grid>
         <br />
         <Grid item xs={12}>
-          <TextField
+          {/* <TextField
             variant="outlined"
             size="small"
             fullWidth
@@ -277,7 +300,26 @@ export default function Form() {
             label="Profile Image"
             value={profile.profileImage}
             onChange={genOnFieldChange("profileImage")}
-          />
+          /> */}
+          {profile.profileImage && (
+            <img
+              src={profile.profileImage}
+              alt="profile url"
+              style={{ width: "100%" }}
+            />
+          )}
+          <Button
+            variant="outlined"
+            style={{
+              color: "#3CB685",
+            }}
+            size="medium"
+            className={classes.button}
+            startIcon={<AddAPhotoIcon />}
+            onClick={onAddProfileImageClick}
+          >
+            Set Profile Image
+          </Button>
         </Grid>
         <br />
         <div className={classes.margin}>

@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-export default function AddImageDialog({ onUrlCapture, dialogOpen }) {
+export default function AddImageDialog({ onUrlCapture, dialogOpen, title }) {
   const [open, setOpen] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState("");
   React.useEffect(() => {
@@ -30,7 +30,7 @@ export default function AddImageDialog({ onUrlCapture, dialogOpen }) {
       onClose={handleCancel}
       aria-labelledby="form-dialog-title"
     >
-      <DialogTitle id="form-dialog-title">Additional Images</DialogTitle>
+      <DialogTitle id="form-dialog-title">{title}</DialogTitle>
       <DialogContent>
         <DialogContentText>Add an image link for the page</DialogContentText>
         <TextField
